@@ -1,0 +1,25 @@
+<select id="docs-version">
+	{% for version in site.versions %}
+		{% assign url = page.url | replace: this_version,  version.name %}
+			{% if url %}
+				<option value="{{ url }}" {% if version.name == this_version %}selected=selected{% endif %}>
+					Version {{ version.name }}
+					{% if version.latest == true %}
+						( Latest )
+					{% endif %}
+					</option>
+			{% endif %}
+	{% endfor %}
+</select>
+
+<script>
+	$(function(){
+		$('#docs-version').on('change', function () {
+			var url = $(this).val(); // get selected value
+				if (url) { // require a URL
+					window.location = url; // redirect
+				}
+			return false;
+		});
+	});
+</script>

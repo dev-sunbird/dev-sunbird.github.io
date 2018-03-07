@@ -1,0 +1,109 @@
+---
+---
+<!DOCTYPE html>
+<html>
+	
+	<head>
+	{% include head.html %}
+	<meta name="robots" content="index, follow">
+	</head>
+
+  <body>
+	  {% include header.html %}
+    <div class="docspage fill-height inner__content fixed-content">
+			<div class="container main">
+				<div class="row row-eq-height">
+					{% for tags in site.versions %}
+						{% if tags.latest == true %}
+							{% assign latest_version = tags.name %}
+							<div class="col-xs-12">
+								<h2>Latest Version ({{tags.name}})</h2>
+								<p><i><small>Released on {{tags.release-date}}</small></i></p>
+								<br />
+							</div>
+							
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{latest_version}}/architecture/" class="homepage-section">
+										<img src="img/docs_images/architecture.png">
+									</a>
+									<div class="caption">
+										<a href="docs/{{latest_version}}/architecture/" class="homepage-section">
+											<h5 class="homepage-section__title">Architecture <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{latest_version}}/developer-docs/" class="homepage-section">
+										<img src="img/docs_images/developer-docs.png">
+									</a>
+									<div class="caption">
+										<a href="docs/{{latest_version}}/developer-docs/" class="homepage-section">
+											<h5 class="homepage-section__title">Developer Docs <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{latest_version}}/features-documentation/" class="homepage-section">
+										<img src="img/docs_images/product-features.png">
+									</a>
+									<div class="caption">
+										<a href="docs/{{latest_version}}/features-documentation/" class="homepage-section">
+											<h5 class="homepage-section__title">Product Features <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{latest_version}}/apis/" class="homepage-section">
+										<img src="img/docs_images/rest-apis.png">
+									</a>
+									<div class="caption">
+										<a href="docs/{{latest_version}}/apis/" class="homepage-section">
+											<h5 class="homepage-section__title">Sunbird REST APIs <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{latest_version}}/faqs/" class="homepage-section">
+										<img src="img/docs_images/faqs.png">
+									</a>
+									<div class="caption">
+										<a href="docs/{{latest_version}}/faqs/" class="homepage-section">
+											<h5 class="homepage-section__title">Frequently asked questions <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+					<div class="col-xs-12">
+						<h2>Previous Versions</h2>
+						<ul>
+						{% for tags in site.versions %}
+							{% if tags.latest != true %}
+							<li><a href="docs/{{tags.name}}/index.html"><strong>{{tags.name}}</strong></a> (<i><small>Released on {{tags.release-date}}</small></i> )</li>
+							{% endif %}
+						{% endfor %}
+						</ul>
+					</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+
+	{% include footer.html %}
+
+  </body>
+
+</html>

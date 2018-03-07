@@ -1,0 +1,92 @@
+<div class="sidebar-wrapper">
+	{% for version in site.data.sidebar.versions %}
+	    {% if version.title == this_version %}
+			{% for menu in version.menu %}
+			<!-- Section Start-->
+				{% if menu.type == "absolute" %}
+					{% assign finalurl = menu.url %}
+				{% elsif menu.type == 'relative' %}
+					{% assign finalurl = "docs/" | append: this_version | append: "/" | append: menu.url %}
+				{% else %}
+					{% assign finalurl = "docs/" | append: this_version | append: "/" | append: menu.url %}
+				{% endif %}
+				{% assign sections = finalurl | split: '/' %}
+				<div class="section {% if (sections[2] == paths[3]) || ((if paths[3] == 'apis') && (sections[2] = 'developer-docs'))%}active{% endif %} section-{{sections[2]}} path-{{paths[3]}}">
+					<a href="{{finalurl}}" {% if menu.target %}target="_{{menu.target}}"{% endif %}>
+						<h4 class="sidebar-group-title">{{menu.title}}</h4>
+					</a>
+					{% if menu.subfolderitems[0] %}
+						<ul class="sidebar-group">
+						{% for submenu in menu.subfolderitems %}
+							<li>
+								
+								{% if submenu.subfolderitems[0] %}
+									<div class="">
+										{% if submenu.type == 'absolute' %}
+											{% assign submenufinalurl = submenu.url %}
+										{% elsif submenu.type == 'relative' %}
+											{% assign submenufinalurl = "docs/" | append: this_version | append: "/" | append: submenu.url %}
+										{% else %}
+											{% assign submenufinalurl = "docs/" | append: this_version | append: "/" | append: submenu.url %}
+										{% endif %}
+										<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+											{{submenu.page}}
+										</a>
+										<ul class="sidebar-group">
+											{% for subsubmenu in submenu.subfolderitems %}
+											<li>
+												{% if subsubmenu.type == 'absolute' %}
+													{% assign subsubmenufinalurl = submenu.url %}
+												{% elsif subsubmenu.type == 'relative' %}
+													{% assign subsubmenufinalurl = "docs/" | append: this_version | append: "/" | append: subsubmenu.url %}
+												{% else %}
+													{% assign subsubmenufinalurl = "docs/" | append: this_version | append: "/" | append: subsubmenu.url %}
+												{% endif %}
+												<a  href="{{subsubmenufinalurl}}" {% if subsubmenu.target %}target="_{{subsubmenu.target}}"{% endif %}>
+													{{subsubmenu.page}}
+												</a>
+											</li>
+											{% endfor %}
+										</ul>
+									</div>
+								{% else %}
+									{% if submenu.type == 'absolute' %}
+										{% assign submenufinalurl = submenu.url %}
+									{% elsif submenu.type == 'relative' %}
+										{% assign submenufinalurl = "docs/" | append: this_version | append: "/" | append: submenu.url %}
+									{% else %}
+										{% assign submenufinalurl = "docs/" | append: this_version | append: "/" | append: submenu.url %}
+									{% endif %}
+									<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+										{{submenu.page}}
+									</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+						</ul>
+					 {% endif %}
+				</div>
+				<!-- Section End-->
+			{% endfor %}
+	    {% endif %}	
+	{% endfor %}
+	<!-- Contribution Sidebar-->
+	
+	{% if this_version == 'contributions' %}
+	
+		{% for tags in site.versions %}
+			
+			<div class="section active">
+				<a href="docs/{{tags.name}}/architecture/index.html" class="sidebar-link-selected">
+					<h4 class="sidebar-group-title">{{tags.name}}</h4>
+				</a>
+				<ul class="sidebar-group">
+					<li><a href="docs/{{tags.name}}/architecture/index.html">Architecture</a></li>
+					<li><a href="docs/{{tags.name}}/developer-docs/index.html">Developer Documentation</a></li>
+					<li><a href="docs/{{tags.name}}/features-documentation/index.html">Product Features</a></li>
+					<li><a href="docs/{{tags.name}}/faqs/index.html">Frequently Asked Questions</a></li>
+				</ul>	 
+			</div>
+		{% endfor %}
+	{% endif %}	
+</div>

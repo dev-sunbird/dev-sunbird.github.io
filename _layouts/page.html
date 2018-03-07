@@ -1,0 +1,116 @@
+<!-- this version - version of this page -->
+<!-- latest version - latest version available -->
+{% assign paths = page.url | split: '/' %}
+{% assign this_version = paths[2] %}
+{% assign page.this_version = paths[2] %}
+{% for tags in site.versions %}
+	{% if tags.latest == true %}
+		{% assign latest_version = tags.name %}
+	{% endif %}
+{% endfor %}
+
+{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+{% assign publishinginfo = site.versions | where:"name", this_version  | first %}
+{% if (publishinginfo) %}
+	{% if (page.allowSearch) %}
+		{% assign meta-index = '<meta name="robots" content="index, follow">' %}
+	{% else %} 
+		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+	{% endif %} 
+{% else %} 
+	{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+{% endif %} 
+
+<!DOCTYPE html>
+<html>
+	<head>
+	{% include head.html %}
+	{{ meta-index }}
+	
+  </head>
+  <body id="body">
+  <div class="container inner container-height docs {{ this_version }} {% if this_version == latest_version %}latest{% endif %}">
+    <header class="logo-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        </a>
+      </div>
+      <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </header>
+    <nav class="sidebar-container" id="mobile-dropdown">
+		<div class="inner__sidebar">
+			{% if site.showSearch == true %}
+				{% include search.html %}
+			{% endif %}
+			{% include version.html %}
+			{% include sidebar.html %}
+			<script>
+				$("a[href$='{{page.url | remove_first: "/" }}']").addClass("sidebar-link-selected");
+			</script>
+		</div>
+    </nav>
+    <div class="content">
+      <div class="inner__content header" id="heading">
+        <h1>{{ page.title }} </h1>
+      </div>
+
+      <div id="main-content" class="inner__content">
+			<p class="edit-para text-right">
+				<span>
+			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
+			  </a> &nbsp;&nbsp;
+			  
+			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/edit/dev/{{page.path}}">
+				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+			  </a> 
+			  | 
+			  <a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/issues" title="Report issue">
+				  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+				  Report
+			  </a>
+			  </span>
+			</p>
+          {{ content | toc_generate }}
+          
+          <hr />
+          
+          <p class="edit-para text-right">
+			<a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/edit/dev/{{page.path}}" title="Fix this page">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+			<a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/issues" title="Report issue">
+				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
+		  </p>
+		  <a href="{{page.url | remove_first: "/" }}#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+          
+      </div>
+    </div>
+    <div class="page-footer">
+		{% include footer.html %}
+	</div>
+  </div>
+  <script type="text/javascript">
+	//TOC Toggle
+    $(function() {
+        $.toc.clickHideButton();
+    });
+    //Scroll to top
+    $(document).ready(function () {
+		$(".content").scroll(function () {
+			if ($(this).scrollTop() > 250) {
+				$('.scrollup').fadeIn();
+			} else {
+				$('.scrollup').fadeOut();
+			}
+		});
+	});
+	$('#toc a').each(function(){
+		var url = this.href.replace(baseURL.href, "");
+		this.href = '{{page.url | remove_first: "/" }}' + url;
+    })
+  </script>
+  </body>
+</html>
