@@ -4,10 +4,6 @@ versions:
   published: true
   allowIndexing: true
   build: true
-- name: '1.0'
-  published: true
-  allowIndexing: true
-  build: true
 - name: 'contributions'
   published: true
   allowIndexing: true
