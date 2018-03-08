@@ -1,7 +1,7 @@
 echo -e "\n\n\033[1;35m==============================================================\033[39m"
 echo -e "\033[1;35m======================# Process Starts #======================\033[39m"
 echo -e "\033[1;35m==============================================================\033[39m"
-rm -rf ../_data/version/ && mkdir ../_data/version/
+rm -rf _data/version/ && mkdir _data/version/
 if [ $? -eq 0 ]; then
     echo -e "\n\033[1;32mSuccessful - Version folder regeneration was Successful!!\033[39m"
 else
@@ -32,7 +32,7 @@ do
     then
     echo -e "\n\n\033[1;35m======== Version -> $versionalias Starts ======== \033[39m"
     echo -e "\n\033[1;35mFetching Docs Version -" $versionalias " inside " $versionalias " folder ... \033[39m\n"
-    git clone --depth 1 --branch $versionalias --single-branch git@github.com:dev-sunbird/docs.git  $versionalias
+    git clone -q --depth 1 --branch $versionalias --single-branch git@github.com:dev-sunbird/docs.git  $versionalias
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - Fetching version " $versionname " was Successful !!\033[39m"
 	else
@@ -46,17 +46,11 @@ do
 	fi
     if [[ "$versionname" != "Contributions" ]]
     then
-    rm ../_data/version/$versionalias.yaml
-    if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Deleting old " $versionalias ".yaml was Successful !!\033[39m"
-	else
-		echo -e "\n\033[1;31mFAILED !! - Deleting old " $versionalias ".yaml was Failed !!\033[39m"
-	fi
     mv $versionalias/version.yaml ../_data/version/$versionalias.yaml
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Creation of " $versionalias ".yaml in _data folder was Successful !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - Creation of " $versionalias".yaml in _data folder was Successful !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - Creation of" $versionalias ".yaml in _data folder was Failed !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - Creation of" $versionalias".yaml in _data folder was Failed !!\033[39m"
 	fi
     fi
     echo -e "\n\n\033[1;35m========  Version -> $versionalias Ends ======== \033[39m"

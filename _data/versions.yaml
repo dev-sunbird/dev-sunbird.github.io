@@ -16,8 +16,8 @@ versions:
   published: true
   allowIndexing: true
   build: true
-- name: 'master'
-  alias: 'draft'
+- name: 'Drafts'
+  alias: 'master'
   published: false
   allowIndexing: false
   build: true
