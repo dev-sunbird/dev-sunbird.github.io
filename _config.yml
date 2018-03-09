@@ -13,6 +13,8 @@ anchorPrefix: link
 tocTopTag: h2
 showToggleButton: true
 showSearch: true
+docsRepo: https://github.com/dev-sunbird/docs
+siteRepo: https://github.com/dev-sunbird/dev-sunbird.github.io
   
 defaults:
   -

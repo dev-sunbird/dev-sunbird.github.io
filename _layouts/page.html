@@ -1,16 +1,23 @@
-<!-- this version - version of this page -->
-<!-- latest version - latest version available -->
 {% assign paths = page.url | split: '/' %}
-{% assign this_version = paths[2] %}
-{% assign page.this_version = paths[2] %}
-{% for tags in site.versions %}
-	{% if tags.latest == true %}
-		{% assign latest_version = tags.name %}
+{% assign this_path = paths[2] %}
+{% for version in site.data.versions %}
+	{% if version.latest == true %}
+		{% assign latest_version_alias = version.alias %}
+		{% assign latest_version_name = version.name %}
+	{% endif %}
+	{% if version.alias == this_path %}
+		{% assign this_version_alias = version.alias %}
+		{% assign this_version_name = version.name %}
+		{% assign this_version_branch = version.branch %}
+		{%  if this_version_alias == 'contributions' %}
+			{% assign this_version_alias = latest_version_alias %}
+			{% assign contribution_class = "active" %}
+		{% endif %}
 	{% endif %}
 {% endfor %}
 
 {% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-{% assign publishinginfo = site.versions | where:"name", this_version  | first %}
+{% assign publishinginfo = site.versions | where:"name", this_version_alias  | first %}
 {% if (publishinginfo) %}
 	{% if (page.allowSearch) %}
 		{% assign meta-index = '<meta name="robots" content="index, follow">' %}
@@ -29,7 +36,7 @@
 	
   </head>
   <body id="body">
-  <div class="container inner container-height docs {{ this_version }} {% if this_version == latest_version %}latest{% endif %}">
+  <div class="container inner container-height docs {{ this_version_name }} {% if this_version_name == latest_version_name %}latest{% endif %}">
     <header class="logo-container">
       <div class="logo">
         <a href="index.html">
@@ -64,11 +71,11 @@
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/edit/dev/{{page.path}}">
+			 <a target="_blank"  title="Edit this page"class="" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_branch }}">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
-			  <a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/issues" title="Report issue">
+			  <a target="_blank" href="{{site.docsRepo}}/issues" title="Report issue">
 				  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
 				  Report
 			  </a>
@@ -79,9 +86,9 @@
           <hr />
           
           <p class="edit-para text-right">
-			<a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/edit/dev/{{page.path}}" title="Fix this page">
+			<a target="_blank" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_branch }}" title="Fix this page">
 				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
-			<a target="_blank" href="https://github.com/lakhanmandloi/lakhanmandloi.github.io/issues" title="Report issue">
+			<a target="_blank" href="{{site.docsRepo}}/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
 		  </p>
 		  <a href="{{page.url | remove_first: "/" }}#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
