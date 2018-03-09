@@ -1,59 +1,76 @@
 echo -e "\n\n\033[1;35m==============================================================\033[39m"
 echo -e "\033[1;35m======================# Process Starts #======================\033[39m"
 echo -e "\033[1;35m==============================================================\033[39m"
-rm -rf _data/version/ && mkdir _data/version/
+
+# Delete and recreate versions.yaml file
+rm  _data/versions.yaml && touch _data/versions.yaml
 if [ $? -eq 0 ]; then
-    echo -e "\n\033[1;32mSuccessful - Version folder regeneration was Successful!!\033[39m"
+    echo -e "\n\033[1;32mSuccessful - Versions file regeneration was Successful!!\033[39m"
 else
-    echo -e "\n\033[1;31mFAILED !! - Version folder regeneration was Failed !!\033[39m"
+    echo -e "\n\033[1;31mFAILED !! - Versions file regeneration was Failed !!\033[39m"
 fi
+
+# Delete and recreate docs folder
 rm -rf docs/ && mkdir docs/ && cd docs/
 if [ $? -eq 0 ]; then
     echo -e "\n\033[1;32mSuccessful - Docs folder regeneration was Successful!!\033[39m"
 else
     echo -e "\n\033[1;31mFAILED !! - Docs folder regeneration was Failed !!\033[39m"
 fi
-versions=$(cat ../_data/versions.yaml | yq .versions)
+
+# Read data from branches.yaml file
+versions=$(cat ../_data/branches.yaml | yq .versions)
 if [ $? -eq 0 ]; then
-    echo -e "\n\033[1;32mSuccessful - Versions data read successfully !!\033[39m"
+    echo -e "\n\033[1;32mSuccessful - Versions file data read successfully !!\033[39m"
 else
-    echo -e "\n\033[1;31mFAILED !! - Versions data read failed !!\033[39m"
+    echo -e "\n\033[1;31mFAILED !! - Versions file data read failed !!\033[39m"
 fi
+
+
 for version in $(echo $versions | jq -r '.[] | @base64')
 do
 	_jq() 
     {
     echo ${version} | base64 --decode | jq -r ${1}
     }
-    versionname=$(_jq '.name')
-    versionalias=$(_jq '.alias')
-    versionbuildable=$(_jq '.build')
-    if [[ "$versionbuildable" == "true" ]]
+    
+    branch=$(_jq '.branch')
+    branchfolder=$(_jq '.folder')
+    branchbuildable=$(_jq '.build')
+    
+    # if branch is allowed to build then only build
+    if [[ "$branchbuildable" == "true" ]]
     then
-    echo -e "\n\n\033[1;35m======== Version -> $versionalias Starts ======== \033[39m"
-    echo -e "\n\033[1;35mFetching Docs Version -" $versionalias " inside " $versionalias " folder ... \033[39m\n"
-    git clone -q --depth 1 --branch $versionalias --single-branch git@github.com:dev-sunbird/docs.git  $versionalias
+    echo -e "\n\n\033[1;35m======== Version -> $branch Starts ======== \033[39m"
+    echo -e "\n\033[1;35mFetching Docs Version -" $branch " inside " $branchfolder " folder ... \033[39m\n"
+    
+    # git clone branch inside branchfolder
+    git clone -q --depth 1 --branch $branch --single-branch git@github.com:dev-sunbird/docs.git  $branchfolder
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Fetching version " $versionname " was Successful !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - Fetching version " $branch " was Successful !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - Fetching version " $versionname " was Failed !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - Fetching version " $branch " was Failed !!\033[39m"
 	fi
-    rm -rf $versionalias/.git
+	
+	# cleanup
+    rm -rf $branchfolder/.git
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Deleting .git folder from " $versionalias " was Successful !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - Deleting .git folder from " $branchfolder " folder was Successful !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - Deleting .git folder from " $versionalias " was Failed !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - Deleting .git folder from " $branchfolder " folder was Failed !!\033[39m"
 	fi
-    if [[ "$versionname" != "Contributions" ]]
+	
+	# read version meta and concate them in single file
+    if [[ "$branch" != "Contributions" ]]
     then
-    mv $versionalias/version.yaml ../_data/version/$versionalias.yaml
+    cat $branchfolder/version.yaml >> ../_data/versions.yaml && rm $branchfolder/version.yaml
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Creation of " $versionalias".yaml in _data folder was Successful !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branchfolder" folder successfully appended to _data/versions.yaml file !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - Creation of" $versionalias".yaml in _data folder was Failed !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - version.yaml file from " $branchfolder" folder failed to append in _data/versions.yaml file !!\033[39m"
 	fi
     fi
-    echo -e "\n\n\033[1;35m========  Version -> $versionalias Ends ======== \033[39m"
+    echo -e "\n\n\033[1;35m========  Version -> $branch Ends ======== \033[39m"
     fi
 done 
 echo -e "\n\n\033[1;35m==============================================================\033[39m"

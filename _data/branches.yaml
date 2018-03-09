@@ -1,9 +1,13 @@
 versions: 
 - branch: '2.0'
+  folder: '2.0'
   build: true
 - branch: '1.0'
+  folder: '1.0'
   build: true
 - branch: 'contributions'
+  folder: 'contributions'
   build: true
 - branch: 'master'
+  folder: 'draft'
   build: true
