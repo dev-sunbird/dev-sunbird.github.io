@@ -61,15 +61,14 @@ do
 	fi
 	
 	# read version meta and concate them in single file
-    if [[ "$branchfolder" != "contributions" ]]
-    then
     cat $branchfolder/version.yaml >> ../_data/versions.yaml && rm $branchfolder/version.yaml
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branchfolder" folder successfully appended to _data/versions.yaml file !!\033[39m"
 	else
 		echo -e "\n\033[1;31mFAILED !! - version.yaml file from " $branchfolder" folder failed to append in _data/versions.yaml file !!\033[39m"
 	fi
-    fi
+	
+	
     echo -e "\n\n\033[1;35m========  Version -> $branch Ends ======== \033[39m"
     fi
 done 
