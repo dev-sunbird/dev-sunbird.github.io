@@ -4,6 +4,7 @@
 docs
 ingredients
 _data/version/*
+_data/versions.yaml
 #=======================================
 # Exclude Site Generated
 #=======================================

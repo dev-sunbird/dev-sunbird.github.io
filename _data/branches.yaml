@@ -1,0 +1,9 @@
+versions: 
+- branch: '2.0'
+  build: true
+- branch: '1.0'
+  build: true
+- branch: 'contributions'
+  build: true
+- branch: 'master'
+  build: true
