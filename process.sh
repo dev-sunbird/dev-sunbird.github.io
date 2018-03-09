@@ -61,7 +61,7 @@ do
 	fi
 	
 	# read version meta and concate them in single file
-    if [[ "$branch" != "Contributions" ]]
+    if [[ "$branchfolder" != "contributions" ]]
     then
     cat $branchfolder/version.yaml >> ../_data/versions.yaml && rm $branchfolder/version.yaml
     if [ $? -eq 0 ]; then
