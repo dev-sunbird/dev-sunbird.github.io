@@ -17,28 +17,31 @@
 					
 					{% for version in site.data.versions %}
 						{% if version.latest == true %}
-							<div class="col-xs-12">
-								<h2>Latest Version ({{version.name}})</h2>
-								<p><i><small>Released on {{version.release-date}}</small></i></p>
-								<br />
-							</div>
-							
-							{% for section in version.sections %}
-							<div class="col-sm-6 col-md-4">
-								<div class="img-thumbnail">
-									<a href="docs/{{version.alias}}/{{section.url}}/" class="homepage-section">
-										<img src="{{section.img}}">
-									</a>
-									<div class="caption">
-										<a href="docs/{{version.alias}}/{{version.url}}/" class="homepage-section">
-											<h5 class="homepage-section__title">{{section.name}} <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+						
+							{% if version.published == true %}
+								<div class="col-xs-12">
+									<h2>Latest Version ({{version.name}})</h2>
+									<p><i><small>Released on {{version.release-date}}</small></i></p>
+									<br />
+								</div>
+								
+								{% for section in version.sections %}
+								<div class="col-sm-6 col-md-4">
+									<div class="img-thumbnail">
+										<a href="docs/{{version.alias}}/{{section.url}}/" class="homepage-section">
+											<img src="{{section.img}}">
 										</a>
+										<div class="caption">
+											<a href="docs/{{version.alias}}/{{version.url}}/" class="homepage-section">
+												<h5 class="homepage-section__title">{{section.name}} <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-							
-							{% endfor %}
-											
+								{% endfor %}
+												
+							{% endif %}
+						
 						{% endif %}
 					{% endfor %}
 					

@@ -9,6 +9,14 @@
 		{% assign this_version_alias = version.alias %}
 		{% assign this_version_name = version.name %}
 		{% assign this_version_branch = version.branch %}
+		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+		{% if version.published %}
+			{% if version.allowIndexing  %}
+				{% if page.allowSearch  %}
+					{% assign meta-index = '<meta name="robots" content="index, follow">' %}
+				{% endif %}
+			{% endif %}
+		{% endif %}
 		{%  if this_version_alias == 'contributions' %}
 			{% assign this_version_alias = latest_version_alias %}
 			{% assign contribution_class = "active" %}
@@ -16,17 +24,6 @@
 	{% endif %}
 {% endfor %}
 
-{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-{% assign publishinginfo = site.versions | where:"name", this_version_alias  | first %}
-{% if (publishinginfo) %}
-	{% if (page.allowSearch) %}
-		{% assign meta-index = '<meta name="robots" content="index, follow">' %}
-	{% else %} 
-		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-	{% endif %} 
-{% else %} 
-	{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-{% endif %} 
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +68,7 @@
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_branch }}">
+			 <a target="_blank"  title="Edit this page"class="" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_alias }}">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
