@@ -2,7 +2,7 @@
 <script>
 	// Dynamic Base URL
 	function getBase(){
-		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "lakhanmandloi.github.io"];
+		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io/"];
 		baseURL = document.getElementById('baseURL');
 		if (excludedSites.indexOf(window.location.host) > -1){
 			baseURL.href="/";
