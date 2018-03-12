@@ -14,10 +14,10 @@ jobs:
         command: |
           if [ "$CIRCLE_BRANCH" != "dev" ]
           then
-          echo "baseurl: /pr/$CIRCLE_PR_NUMBER" >> _config.yml
+          echo "baseurl: /pr/$CIRCLE_PR_NUMBER"/ >> _config.yml
           echo "buildVersion: PR - $CIRCLE_PR_NUMBER" >> _config.yml
           else
-          echo "baseurl: /review" >> _config.yml
+          echo "baseurl: /review/" >> _config.yml
           echo "buildVersion: Commit" >> _config.yml
           fi
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
@@ -77,7 +77,7 @@ jobs:
       # Run Build command
       - type: shell
         command: |
-          echo "baseurl: /releases/$CIRCLE_TAG" >> _config.yml
+          echo "baseurl: /releases/$CIRCLE_TAG/" >> _config.yml
           echo "buildVersion: $CIRCLE_TAG" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x process.sh
