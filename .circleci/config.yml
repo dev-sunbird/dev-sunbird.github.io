@@ -21,6 +21,7 @@ jobs:
           echo "buildVersion: Commit" >> _config.yml
           fi
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
+          chmod +x process.sh
           ./process.sh
           bundle exec jekyll build 
       # Deploy to s3 bucket
@@ -79,6 +80,7 @@ jobs:
           echo "baseurl: /releases/$CIRCLE_TAG/" >> _config.yml
           echo "buildVersion: $CIRCLE_TAG" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
+          chmod +x process.sh
           ./process.sh
           bundle exec jekyll build
           
