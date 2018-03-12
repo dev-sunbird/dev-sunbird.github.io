@@ -19,7 +19,7 @@
 		$('#docs-version').on('change', function () {
 			var url = $(this).val(); // get selected value
 				if (url) { // require a URL
-					window.location = url; // redirect
+					window.location = baseURL+url; // redirect
 				}
 			return false;
 		});
