@@ -1,0 +1,24 @@
+{% assign paths = page.url | split: '/' %}
+{% assign this_path = paths[2] %}
+{% for version in site.data.versions %}
+	{% if version.latest == true %}
+		{% assign latest_version_branch = version.branch %}
+		{% assign latest_version_name = version.name %}
+	{% endif %}
+	{% if version.branch == this_path %}		
+		{% assign this_version_name = version.name %}
+		{% assign this_version_branch = version.branch %}
+		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+		{% if version.published %}
+			{% if version.allowIndexing  %}
+				{% if page.allowSearch  %}
+					{% assign meta-index = '<meta name="robots" content="index, follow">' %}
+				{% endif %}
+			{% endif %}
+		{% endif %}
+		{%  if this_version_branch == 'contributions' %}
+			{% assign this_version_branch = latest_version_branch %}
+			{% assign contribution_class = "active" %}
+		{% endif %}
+	{% endif %}
+{% endfor %}

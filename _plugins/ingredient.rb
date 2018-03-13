@@ -11,12 +11,12 @@ module Jekyll
       context.registers[:ingredient] = {}
       context.registers[:ingredient_name] = @markup
       paths = context.registers[:page]["url"].split('/')
-      this_version = paths[2]
+      this_version_branch = paths[2]
       
       super
 
       # Include file and remove frontmatter
-      file = read_file(context.registers[:site].in_source_dir("docs/"+this_version+"/ingredients" + "/" + @markup + ".md")).gsub(/^---\n((?!---).*\n)*---/, "")
+      file = read_file(context.registers[:site].in_source_dir("docs/"+this_version_branch+"/ingredients" + "/" + @markup + ".md")).gsub(/^---\n((?!---).*\n)*---/, "")
       partial = Liquid::Template.parse(file)
       context.stack do
         partial.render!(context)

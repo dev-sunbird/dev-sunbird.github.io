@@ -35,17 +35,16 @@ do
     }
     
     branch=$(_jq '.branch')
-    branchfolder=$(_jq '.folder')
     branchbuildable=$(_jq '.build')
     
     # if branch is allowed to build then only build
     if [[ "$branchbuildable" == "true" ]]
     then
     echo -e "\n\n\033[1;35m======== Version -> $branch Starts ======== \033[39m"
-    echo -e "\n\033[1;35mFetching Docs Version -" $branch " inside " $branchfolder " folder ... \033[39m\n"
+    echo -e "\n\033[1;35mFetching Docs Version -" $branch " inside " $branch " folder ... \033[39m\n"
     
-    # git clone branch inside branchfolder
-    git clone -q --depth 1 --branch $branch --single-branch git@github.com:dev-sunbird/docs.git  $branchfolder
+    # git clone branch inside branch folder
+    git clone -q --depth 1 --branch $branch --single-branch git@github.com:dev-sunbird/docs.git  $branch
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - Fetching version " $branch " was Successful !!\033[39m"
 	else
@@ -53,19 +52,19 @@ do
 	fi
 	
 	# cleanup
-    rm -rf $branchfolder/.git
+    rm -rf $branch/.git
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - Deleting .git folder from " $branchfolder " folder was Successful !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - Deleting .git folder from " $branch " folder was Successful !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - Deleting .git folder from " $branchfolder " folder was Failed !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - Deleting .git folder from " $branch " folder was Failed !!\033[39m"
 	fi
 	
 	# read version meta and concate them in single file
-    cat $branchfolder/version.yaml >> ../_data/versions.yaml && rm $branchfolder/version.yaml
+    cat $branch/version.yaml >> ../_data/versions.yaml && rm $branch/version.yaml
     if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branchfolder" folder successfully appended to _data/versions.yaml file !!\033[39m"
+		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branch" folder successfully appended to _data/versions.yaml file !!\033[39m"
 	else
-		echo -e "\n\033[1;31mFAILED !! - version.yaml file from " $branchfolder" folder failed to append in _data/versions.yaml file !!\033[39m"
+		echo -e "\n\033[1;31mFAILED !! - version.yaml file from " $branch" folder failed to append in _data/versions.yaml file !!\033[39m"
 	fi
 	
 	

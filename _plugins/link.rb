@@ -42,11 +42,11 @@ module Jekyll
     def render(context)
       href = @href ? @href.gsub('href=', '').gsub("\"", ''): '#'
       paths = context.registers[:page]["url"].split('/')
-      this_version = paths[2]
+      this_version_branch = paths[2]
       url = @url
       
       if url == 'relative'
-		href = 'docs/'+this_version+'/'+href
+		href = 'docs/'+this_version_branch+'/'+href
 	  elsif url == 'absolute'
 		href = href
 	  else

@@ -1,30 +1,5 @@
-{% assign paths = page.url | split: '/' %}
-{% assign this_path = paths[2] %}
-{% for version in site.data.versions %}
-	{% if version.latest == true %}
-		{% assign latest_version_alias = version.alias %}
-		{% assign latest_version_name = version.name %}
-	{% endif %}
-	{% if version.alias == this_path %}
-		{% assign this_version_alias = version.alias %}
-		{% assign this_version_name = version.name %}
-		{% assign this_version_branch = version.branch %}
-		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-		{% if version.published %}
-			{% if version.allowIndexing  %}
-				{% if page.allowSearch  %}
-					{% assign meta-index = '<meta name="robots" content="index, follow">' %}
-				{% endif %}
-			{% endif %}
-		{% endif %}
-		{%  if this_version_alias == 'contributions' %}
-			{% assign this_version_alias = latest_version_alias %}
-			{% assign contribution_class = "active" %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
 
-
+{% include definations.html %}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,7 +8,7 @@
 	
   </head>
   <body id="body">
-  <div class="container inner container-height docs {{ this_version_name }} {% if this_version_name == latest_version_name %}latest{% endif %}">
+  <div class="container inner container-height docs {{ this_version_branch }} {% if this_version_name == latest_version_name %}latest{% endif %}">
     <header class="logo-container">
       <div class="logo">
         <a href="index.html">
@@ -68,7 +43,7 @@
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_alias | remove_first: this_version_branch }}">
+			 <a target="_blank"  title="Edit this page"class="" href="{{site.docsRepo}}/edit/{{page.path | remove_first: 'docs/' }}">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
@@ -83,7 +58,7 @@
           <hr />
           
           <p class="edit-para text-right">
-			<a target="_blank" href="{{site.docsRepo}}/edit/{{this_version_branch}}{{page.path | remove_first: 'docs/' | remove_first: this_version_alias }}" title="Fix this page">
+			<a target="_blank" href="{{site.docsRepo}}/edit/{{page.path | remove_first: 'docs/' }}" title="Fix this page">
 				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
 			<a target="_blank" href="{{site.docsRepo}}/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
