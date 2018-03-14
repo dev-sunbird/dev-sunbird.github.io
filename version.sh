@@ -3,7 +3,7 @@ echo -e "\033[1;35m==============# Version File Processing Starts #=============
 echo -e "\033[1;35m==============================================================\033[39m"
 
 # Read data from branches.yaml file
-versions=$(cat ../_data/branches.yaml | yq .versions)
+versions=$(cat _data/branches.yaml | yq .versions)
 if [ $? -eq 0 ]; then
     echo -e "\n\033[1;32mSuccessful - Versions file data read successfully !!\033[39m"
 else
@@ -27,7 +27,7 @@ do
     echo -e "\n\n\033[1;35m======== Version -> $branch Starts ======== \033[39m"
 	
 	# read version meta and concate them in single file
-    cat $branch/version.yaml >> ../_data/versions.yaml && rm $branch/version.yaml
+    cat docs/$branch/version.yaml >> _data/versions.yaml && rm docs/$branch/version.yaml
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branch" folder successfully appended to _data/versions.yaml file !!\033[39m"
 	else
