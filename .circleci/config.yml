@@ -23,7 +23,7 @@ jobs:
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x fetch.sh
           ./fetch.sh
-          cd ..
+          cd .. 
           chmod +x version.sh
           ./version.sh
           bundle exec jekyll build 
