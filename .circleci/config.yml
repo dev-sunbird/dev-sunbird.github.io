@@ -23,6 +23,8 @@ jobs:
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x fetch.sh
           ./fetch.sh
+          pwd
+          ls
           cd .. 
           chmod +x version.sh
           ./version.sh
