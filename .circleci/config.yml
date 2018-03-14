@@ -86,6 +86,8 @@ jobs:
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x process.sh
           ./process.sh
+          chmod +x version.sh
+          ./version.sh
           bundle exec jekyll build
           
       # Deploy to s3 bucket
