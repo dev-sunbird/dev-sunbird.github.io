@@ -1,5 +1,5 @@
 echo -e "\n\n\033[1;35m==============================================================\033[39m"
-echo -e "\033[1;35m======================# Process Starts #======================\033[39m"
+echo -e "\033[1;35m====================# Fetch Docs Starts  #====================\033[39m"
 echo -e "\033[1;35m==============================================================\033[39m"
 
 # Delete and recreate versions.yaml file
@@ -21,9 +21,9 @@ fi
 # Read data from branches.yaml file
 versions=$(cat ../_data/branches.yaml | yq .versions)
 if [ $? -eq 0 ]; then
-    echo -e "\n\033[1;32mSuccessful - Versions file data read successfully !!\033[39m"
+    echo -e "\n\033[1;32mSuccessful - Branches file data read successfully !!\033[39m"
 else
-    echo -e "\n\033[1;31mFAILED !! - Versions file data read failed !!\033[39m"
+    echo -e "\n\033[1;31mFAILED !! - Branches file data read failed !!\033[39m"
 fi
 
 
@@ -59,18 +59,9 @@ do
 		echo -e "\n\033[1;31mFAILED !! - Deleting .git folder from " $branch " folder was Failed !!\033[39m"
 	fi
 	
-	# read version meta and concate them in single file
-    cat $branch/version.yaml >> ../_data/versions.yaml && rm $branch/version.yaml
-    if [ $? -eq 0 ]; then
-		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branch" folder successfully appended to _data/versions.yaml file !!\033[39m"
-	else
-		echo -e "\n\033[1;31mFAILED !! - version.yaml file from " $branch" folder failed to append in _data/versions.yaml file !!\033[39m"
-	fi
-	
-	
     echo -e "\n\n\033[1;35m========  Version -> $branch Ends ======== \033[39m"
     fi
 done 
 echo -e "\n\n\033[1;35m==============================================================\033[39m"
-echo -e "\033[1;35m=======================# Process Ends #=======================\033[39m"
+echo -e "\033[1;35m=====================# Fetch Docs Ends  #=====================\033[39m"
 echo -e "\033[1;35m==============================================================\033[39m\n\n"
