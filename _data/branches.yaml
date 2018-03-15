@@ -1,9 +1,27 @@
-versions:
 - branch: '2.0'
+  name: '2.0'
   build: true
+  latest: true
+  published: true
+  allowIndexing: true
+  releaseDate: 15th Feb 2017
 - branch: '1.0'
+  name: '1.0'
   build: true
+  latest: false
+  published: true
+  allowIndexing: true
+  releaseDate: 15th Jan 2017
 - branch: 'contributions'
+  name: 'Contributions'
   build: true
+  latest: false
+  published: false
+  allowIndexing: true
+  releaseDate: 
 - branch: 'master'
   build: true
+  latest: false
+  published: false
+  allowIndexing: false
+  releaseDate: 

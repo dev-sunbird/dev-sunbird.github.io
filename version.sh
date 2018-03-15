@@ -3,7 +3,7 @@ echo -e "\033[1;35m==============# Version File Processing Starts #=============
 echo -e "\033[1;35m==============================================================\033[39m"
 
 # Read data from branches.yaml file
-versions=$(cat _data/branches.yaml | yq .versions)
+versions=$(cat _data/branches.yaml | yq .)
 if [ $? -eq 0 ]; then
     echo -e "\n\033[1;32mSuccessful - Versions file data read successfully !!\033[39m"
 else
@@ -19,7 +19,12 @@ do
     }
     
     branch=$(_jq '.branch')
+    branchname=$(_jq '.name')
     branchbuildable=$(_jq '.build')
+    branchlatest=$(_jq '.latest')
+    branchpublished=$(_jq '.published')
+    branchallowIndexing=$(_jq '.allowIndexing')
+    branchreleasedate=$(_jq '.releaseDate')
     
     # if branch is allowed to build then only build
     if [[ "$branchbuildable" == "true" ]]
@@ -27,7 +32,14 @@ do
     echo -e "\n\n\033[1;35m======== Version -> $branch Starts ======== \033[39m"
 	
 	# read version meta and concate them in single file
-    cat docs/$branch/version.yaml >> _data/versions.yaml && rm docs/$branch/version.yaml
+	echo "- name: '"$branchname"'" >> _data/versions.yaml
+	echo "  branch: '"$branch"'" >> _data/versions.yaml
+	echo "  latest: "$branchlatest"" >> _data/versions.yaml
+	echo "  published: "$branchpublished"" >> _data/versions.yaml
+	echo "  allowIndexing: "$branchallowIndexing"" >> _data/versions.yaml
+	echo "  release-date: "$branchreleasedate"" >> _data/versions.yaml
+	
+    cat docs/$branch/version.yaml >> _data/versions.yaml #&& rm docs/$branch/version.yaml
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - version.yaml file from " $branch" folder successfully appended to _data/versions.yaml file !!\033[39m"
 	else

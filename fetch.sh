@@ -19,7 +19,7 @@ else
 fi
 
 # Read data from branches.yaml file
-versions=$(cat ../_data/branches.yaml | yq .versions)
+versions=$(cat ../_data/branches.yaml | yq .)
 if [ $? -eq 0 ]; then
     echo -e "\n\033[1;32mSuccessful - Branches file data read successfully !!\033[39m"
 else
