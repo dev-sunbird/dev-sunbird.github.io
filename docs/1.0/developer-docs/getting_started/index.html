@@ -1,0 +1,1212 @@
+
+
+
+
+	
+		
+		
+	
+	
+
+	
+			
+		
+		
+		
+		
+			
+				
+					
+				
+			
+		
+		
+	
+
+	
+	
+
+	
+	
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<base id="baseURL" href="/" />
+<script>
+	// Dynamic Base URL
+	function getBase(){
+		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io/"];
+		baseURL = document.getElementById('baseURL');
+		if (excludedSites.indexOf(window.location.host) > -1){
+			baseURL.href="/";
+		} else {
+			baseURL.href="/releases/release-1.0.0/";
+		}
+	}
+	getBase();
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#65d3f7">
+<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+
+<title>Sunbird Getting Started with Sunbird</title>
+<meta name="description" content="Sunbird Site For adopters and users to get started on Sunbird. It provides an overview and links to Sunbird's tech stack, components and installation procedures."/>
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="last-modified" content="2018-03-15 17:37:19 +0530">
+<meta http-equiv="Expires" content="600" />
+
+<!--Build Details-->
+<meta name="buildVersion" content="release-1.0.0" />
+<meta name="buildNo" content="22" />
+<!--/Build Details-->
+
+<!-- CDN's-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<!-- /CDN's-->
+
+<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
+<link rel="stylesheet" href="css/style.css?15032018"  />
+<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
+<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
+
+	<meta name="robots" content="index, follow">
+	
+  </head>
+  <body id="body">
+  <div class="container inner container-height docs 1.0 ">
+    <header class="logo-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        </a>
+      </div>
+      <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </header>
+    <nav class="sidebar-container" id="mobile-dropdown">
+		<div class="inner__sidebar">
+			
+				<div class="search-cover">
+	<form method="get" action="https://www.google.com/search" target="_blank">
+		<input type="text" value="" name="q" placeholder="Search"/ class="search-input" title="Enter keyword to search">
+		<input type="hidden" value="en" name="hl" />
+		<input type="hidden" name="sitesearch" value="http://www.sunbird.org" />
+		<input type="hidden" value="lang_en" name="lr" />
+		<button type="submit" onclick="submit()" class="search-btn" title="Search">
+			<i class="fa fa-search"></i>
+		</button>
+	</form>
+</div>
+
+			
+			
+
+
+	
+		
+		
+	
+	
+
+	
+			
+		
+		
+		
+		
+			
+				
+					
+				
+			
+		
+		
+	
+
+	
+	
+
+	
+	
+
+
+<select id="docs-version">
+
+	
+		
+		
+		
+			<option value="docs/2.0/developer-docs/getting_started/" >
+				Version 2.0
+				
+					( Latest )
+				
+				</option>
+		
+	
+
+	
+		
+		
+		
+			<option value="docs/1.0/developer-docs/getting_started/" selected=selected>
+				Version 1.0
+				
+				</option>
+		
+	
+
+	
+
+	
+
+</select>
+
+<script>
+	$(function(){
+		$('#docs-version').on('change', function () {
+			var url = $(this).val(); // get selected value
+				if (url) { // require a URL
+					if (excludedSites.indexOf(window.location.host) > -1){
+						window.location = url; // redirect
+					} else {
+						window.location = baseURL.href+url;  // redirect
+					}
+				}
+			return false;
+		});
+	});
+</script>
+
+			<div class="sidebar-wrapper"> 
+
+
+
+		
+	
+
+	
+		
+		
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-architecture path-developer-docs ">
+			<a href="docs/1.0/architecture/" >
+				<h4 class="sidebar-group-title">Architecture</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/architecture/overview/" >
+								Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/architecture/design/" >
+								Design
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/1.0/architecture/views/elementryview/" >
+									Views
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/architecture/views/logical/" >
+											Logical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/architecture/views/physical/" >
+											Physical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/architecture/views/conceptual/" >
+											Conceptual View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/architecture/views/deployment/" >
+											Deployment View
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/architecture/usecase/" >
+								Use Cases
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-features-documentation path-developer-docs ">
+			<a href="docs/1.0/features-documentation/" >
+				<h4 class="sidebar-group-title">Product Features</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/onboarding/" >
+								Onboarding
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/login/" >
+								Login
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/register_org/" >
+								Register Organizations
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/register_user/" >
+								Register Users
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/1.0/features-documentation/userrolepermission/" >
+									User Roles and Permissions
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/features-documentation/userprofile/" >
+											User Profile
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/features-documentation/workspace/" >
+											Workspace
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/library/" >
+								Library
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/contentlifecycle/" >
+								Content Lifecycle
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/contentcreation/" >
+								Content Creation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/contenteditor/" >
+								Content Editor
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/1.0/features-documentation/guidelines/" >
+									Guidelines
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/features-documentation/intellectualproperty/" >
+											Intellectual Property
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/features-documentation/collaborationpartnership/" >
+								Collaboration and Partnership
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section active section-developer-docs path-developer-docs ">
+			<a href="docs/1.0/developer-docs/" >
+				<h4 class="sidebar-group-title">Developer Documentation</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/developer-docs/installation/" >
+								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/1.0/developer-docs/installation/medium_scale_deploy/" >
+									Medium Scale Deployment
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/provisioning_servers/" >
+											Provisioning Servers
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/setup_db/" >
+											Setup Databases
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/deploy_sb_services/" >
+											Deploying Sunbird Services
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/keycloak_realm_configuration/" >
+											Configure Keycloak
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/cust_sunbird/" >
+											Customizing Assets
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/developer-docs/installation/check_installation/" >
+											Check Installation
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/1.0/apis/" >
+									API References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=bulkserviceapi" target="_blank">
+											Bulk Upload Service APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=contentapi" target="_blank">
+											Content APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=coursebatchmanapi" target="_blank">
+											Course Batch Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=datasyncapi" target="_blank">
+											Data Sync APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=metricsapi" target="_blank">
+											Metrics APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=notificationapi" target="_blank">
+											Notification APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=orgapi" target="_blank">
+											Organisation Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/1.0/apis/specs/?api=userapi" target="_blank">
+											User APIs
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/developer-docs/troubleshooting/" >
+								Troubleshooting
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-faqs path-developer-docs ">
+			<a href="docs/1.0/faqs/" >
+				<h4 class="sidebar-group-title">Frequently asked questions</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/audience/" >
+								Audience
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/content_format/" >
+								Content Format
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/content_repo/" >
+								Content Repositories
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/contentreviews/" >
+								Content Review
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/content_types/" >
+								Content Types
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/content_upload/" >
+								Content Upload
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/feature/" >
+								Features
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/fixerrors/" >
+								Fix Errors
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/helpsupport/" >
+								Help Support
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/intellectual_propertylicensesstandards/" >
+								Intellectual Property Licenses Standards
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/registrationenrolment/" >
+								Registration and Enrollment
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/signin/" >
+								Sign In
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/taxonomymetadataframework/" >
+								Taxonomy Meta Data Framework
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/1.0/faqs/user_rightspermissions/" >
+								Users Rights and Permission
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-glossary path-developer-docs ">
+			<a href="docs/1.0/glossary/" >
+				<h4 class="sidebar-group-title">Glossary</h4>
+			</a>
+			
+		</div>
+		<!-- Section End-->
+	
+		
+	
+
+		
+	
+
+		
+	
+	<!-- Contribution Sidebar-->
+</div>
+
+			<script>
+				$("a[href$='docs/1.0/developer-docs/getting_started/']").addClass("sidebar-link-selected");
+			</script>
+		</div>
+    </nav>
+    <div class="content">
+      <div class="inner__content header" id="heading">
+        <h1>Getting Started with Sunbird </h1>
+      </div>
+
+      <div id="main-content" class="inner__content">
+			<p class="edit-para text-right">
+				<span>
+			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
+			  </a> &nbsp;&nbsp;
+			  
+			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/1.0/developer-docs/getting_started.md">
+				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+			  </a> 
+			  | 
+			  <a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+				  Report
+			  </a>
+			  </span>
+			</p>
+          <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+            <span class="toctoggle">[<a id="toctogglelink" class="internal" href="#">hide</a>]</span>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#techstack-of-sunbird"><span class="tocnumber">1 .</span> <span class="toctext">Techstack of Sunbird</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#sunbird-components"><span class="tocnumber">2 .</span> <span class="toctext">Sunbird Components</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#installation-overview"><span class="tocnumber">3 .</span> <span class="toctext">Installation Overview</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-4">
+                  <a href="#pre-requisites"><span class="tocnumber">3.1 .</span> <span class="toctext">Pre-requisites</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#install-sunbird-on-laptop"><span class="tocnumber">3.2 .</span> <span class="toctext">Install Sunbird on laptop</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#medium-scale-deployment"><span class="tocnumber">3.3 .</span> <span class="toctext">Medium-scale deployment</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#mobile-app-installation"><span class="tocnumber">4 .</span> <span class="toctext">Mobile App Installation</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p>Sunbird is an open source, configurable, extendable, modular learning management platform architected for scale and designed to support multiple teaching and learning solutions supporting multiple languages and available for online and offline use.</p>
+
+<p>Sunbird covers the following broad feature areas:</p>
+
+<ul>
+  <li>Courses, trainings, lesson plans and assessments</li>
+  <li>Resources for use by practitioners and professionals</li>
+  <li>Dashboards for progress and assessment</li>
+  <li>Student and practitioner profile and registry services</li>
+  <li>Communities of practice for collaboration and discussions</li>
+  <li>Announcements, notifications and circulars</li>
+</ul>
+
+<h2 id="techstack-of-sunbird">Techstack of Sunbird</h2>
+
+<p>The techstack used to develop the Sunbird is as follows:</p>
+
+<ul>
+  <li>
+    <p><strong>AngularJS</strong> - simplifies and structures the Sunbird portal</p>
+
+    <ul>
+      <li><em>For details on AngularJS, refer to the <a href="https://angularjs.org/">AngularJS site</a></em></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Java Play</strong> - optimizes resource consumption (CPU, memory, threads) for high scalablilty</p>
+
+    <ul>
+      <li><em>For details on Java Play, refer to the <a href="https://playframework.com">Playframework site</a></em></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Apache Cassandra</strong> - proven database with large active data sets, fault tolerant, decentralized, highly scalable and consistent without compromising on performance</p>
+
+    <ul>
+      <li>
+        <p><em>For details on Apache Cassandra, refer to the <a href="http://cassandra.apache.org">Apache Cassandra site</a></em></p>
+      </li>
+      <li>
+        <p><em>For details on installing the Apache Cassandra database for Sunbird, refer to <a href="http://www.sunbird.org/developer-&#10; docs/installation/setup_db">Setup Database</a></em></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>ElasticSearch</strong> - performs and combines many types of searches — structured, unstructured, geo, metric; and lets you zoom out to explore trends and patterns in your data</p>
+
+    <ul>
+      <li>
+        <p><em>For details on ElasticSearch, refer to the <a href="http://www.elastic.co/products/elasticsearch">ElasticSearch site</a></em></p>
+      </li>
+      <li>
+        <p><em>For details on installing ElasticSearch for Sunbird, refer to the <a href="http://www.sunbird.org/developer-  &#10; docs/installation/setup_db">Setup Database</a></em></p>
+      </li>
+      <li>
+        <p><strong>Docker</strong> - enables containerization of Sunbird components, making each component independent facilitating innovation, 
+collaboration and co-creation</p>
+      </li>
+      <li>
+        <p><em>For details on Docker, refer to the <a href="https://www.docker.com/what-docker">Docker site</a></em></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>To effectively install, implement, adopt or extend Sunbird, it is recommended that you know atleast one or more of the following areas:</p>
+
+<ul>
+  <li>IaaS - Provisioning servers and resources</li>
+  <li>DevOps - Docker, Ansible</li>
+  <li>Database administration - Cassandra, ElasticSearch</li>
+  <li>Web tools - Webserver,SSL certs, OAuth, REST API</li>
+</ul>
+
+<h2 id="sunbird-components">Sunbird Components</h2>
+
+<p>The following are the core components of Sunbird:</p>
+
+<ul>
+  <li>
+    <p><strong>Sunbird Portal</strong>  -  The Sunbird portal is the browser-based interface for the Sunbird application stack. It provides a web interface through which all functionality of Sunbird can be accessed. The Sunbird code is available on GitHub.</p>
+
+    <ul>
+      <li><em>For details of the open source code of Sunbird, refer to the <a href="https://github.com/project-sunbird/sunbird-portal">Sunbird portal</a> <br />
+ repository on GitHub</em></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Content Editor</strong> - Content Editor is an inbuilt authoring tool on Sunbird. You can customize the content editor using Sunbird’s content APIs. APIs are available for any creation, updation or customization of the tool.</p>
+
+    <ul>
+      <li>
+        <p><em>For details, refer to the <a href="http://www.sunbird.org/apis/content">Content APIs</a></em></p>
+      </li>
+      <li>
+        <p><em>For details of the content editor, its features and instructions to use it, refer to <a href="http://www.sunbird.org/features-documentation/contenteditor">Content Editor</a></em></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Content Editor Plugins</strong>  - Sunbird has the capabality to extend the content editor by creating and using plugins. Plugin’s are available for rendering, capturing telemetry, creating and registering a new repository instance, previewing created content, etc.</p>
+  </li>
+  <li>
+    <p><strong>Sunbird Services</strong> - Sunbird uses core and proxy services.</p>
+  </li>
+  <li>
+    <p><strong>Others</strong> - Few other key services are:</p>
+    <ul>
+      <li>API manager</li>
+      <li>Proxy</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+  <em>For details, refer to <a href="http://www.sunbird.org/developer-docs/installation/deploy_sb_services/">Deploying Sunbird Services</a></em>
+</p>
+
+<h2 id="installation-overview">Installation Overview</h2>
+
+<p>Sunbird can be installed on different devices and can be deployed for single or multiusers.</p>
+
+<p>
+  <em>For details on the installation process, refer to <a href="http://www.sunbird.org/developer-docs/installation/">Installation Overview</a></em>
+</p>
+
+<h3 id="pre-requisites">Pre-requisites</h3>
+
+<p>To install Sunbird on any environment using any method of installation, the basic minimum prerequisites are:</p>
+
+<ul>
+  <li>Use of a Linux OS flavour.</li>
+</ul>
+
+<p><strong>Note:</strong> <em>Developer installation is possible on MacOS</em></p>
+
+<ul>
+  <li>Comfort using a terminal, as Sunbird installation is triggered from a command-line terminal</li>
+</ul>
+
+<p><strong>Note:</strong> <em>The prerequisites are not necessary to try the sandbox option</em></p>
+
+<h3 id="install-sunbird-on-laptop">Install Sunbird on laptop</h3>
+
+<ul>
+  <li><em>For a comprehensive walk through to install Sunbird on your laptop, refer to <a href="http://www.sunbird.org/developer-docs/installation/installing_sunbirdon_laptop/">Installing Sunbird on laptop</a></em></li>
+</ul>
+
+<h3 id="medium-scale-deployment">Medium-scale deployment</h3>
+
+<p>To deploy Sunbird for a userbase of 10-10000, refer to <a href="http://www.sunbird.org/developer-docs/installation/medium_scale_deploy/">Medium Scale Deployment</a></p>
+
+<h2 id="mobile-app-installation">Mobile App Installation</h2>
+
+<p>To create a customized mobile application of Sunbird, refer to <a href="http://www.sunbird.org/developer-docs/installation/install_mobile_setup">Mobile App Installation</a></p>
+
+
+          
+          <hr />
+          
+          <p class="edit-para text-right">
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/edit/1.0/developer-docs/getting_started.md" title="Fix this page">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
+		  </p>
+		  <a href="docs/1.0/developer-docs/getting_started/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+          
+      </div>
+    </div>
+    <div class="page-footer">
+		<footer class="footer">
+	<div class="footer__top">
+		<div class="container">
+			<div class="row">
+				
+			<div class="col-md-4 col-sm-12">
+			</div>
+			
+			<div class="col-md-2 col-sm-6 ">
+				<ul>
+					<li><a href="about/">About Sunbird</a></li>
+					<li><a href="contact/">Contact Us</a></li>
+					<li><a href="privacy-policy/">Privacy Policy</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-2 col-sm-6 sideline">
+				<ul>
+					<li><a href="docs/">Documentation</a></li>
+					<li><a href="features/">Features</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-2 col-sm-12">
+			</div>
+			
+		</div>
+	</div>
+</footer>
+
+	</div>
+  </div>
+  <script type="text/javascript">
+	//TOC Toggle
+    $(function() {
+        $.toc.clickHideButton();
+    });
+    //Scroll to top
+    $(document).ready(function () {
+		$(".content").scroll(function () {
+			if ($(this).scrollTop() > 250) {
+				$('.scrollup').fadeIn();
+			} else {
+				$('.scrollup').fadeOut();
+			}
+		});
+	});
+	$('#toc a').each(function(){
+		var url = this.href.replace(baseURL.href, "");
+		this.href = 'docs/1.0/developer-docs/getting_started/' + url;
+    })
+  </script>
+  </body>
+</html>

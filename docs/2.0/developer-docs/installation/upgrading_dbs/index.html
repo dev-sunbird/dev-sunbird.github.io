@@ -1,0 +1,1177 @@
+
+
+
+
+	
+		
+		
+	
+			
+		
+		
+		
+		
+			
+				
+					
+				
+			
+		
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<base id="baseURL" href="/" />
+<script>
+	// Dynamic Base URL
+	function getBase(){
+		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io/"];
+		baseURL = document.getElementById('baseURL');
+		if (excludedSites.indexOf(window.location.host) > -1){
+			baseURL.href="/";
+		} else {
+			baseURL.href="/releases/release-1.0.0/";
+		}
+	}
+	getBase();
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#65d3f7">
+<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+
+<title>Sunbird Upgrading the Cassandra Database</title>
+<meta name="description" content="Sunbird Site Upgrading Cassandra Database"/>
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="last-modified" content="2018-03-15 17:37:19 +0530">
+<meta http-equiv="Expires" content="600" />
+
+<!--Build Details-->
+<meta name="buildVersion" content="release-1.0.0" />
+<meta name="buildNo" content="22" />
+<!--/Build Details-->
+
+<!-- CDN's-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<!-- /CDN's-->
+
+<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
+<link rel="stylesheet" href="css/style.css?15032018"  />
+<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
+<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
+
+	<meta name="robots" content="index, follow">
+	
+  </head>
+  <body id="body">
+  <div class="container inner container-height docs 2.0 latest">
+    <header class="logo-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        </a>
+      </div>
+      <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </header>
+    <nav class="sidebar-container" id="mobile-dropdown">
+		<div class="inner__sidebar">
+			
+				<div class="search-cover">
+	<form method="get" action="https://www.google.com/search" target="_blank">
+		<input type="text" value="" name="q" placeholder="Search"/ class="search-input" title="Enter keyword to search">
+		<input type="hidden" value="en" name="hl" />
+		<input type="hidden" name="sitesearch" value="http://www.sunbird.org" />
+		<input type="hidden" value="lang_en" name="lr" />
+		<button type="submit" onclick="submit()" class="search-btn" title="Search">
+			<i class="fa fa-search"></i>
+		</button>
+	</form>
+</div>
+
+			
+			
+
+
+	
+		
+		
+	
+			
+		
+		
+		
+		
+			
+				
+					
+				
+			
+		
+		
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+
+<select id="docs-version">
+
+	
+		
+		
+		
+			<option value="docs/2.0/developer-docs/installation/upgrading_dbs/" selected=selected>
+				Version 2.0
+				
+					( Latest )
+				
+				</option>
+		
+	
+
+	
+		
+		
+		
+			<option value="docs/1.0/developer-docs/installation/upgrading_dbs/" >
+				Version 1.0
+				
+				</option>
+		
+	
+
+	
+
+	
+
+</select>
+
+<script>
+	$(function(){
+		$('#docs-version').on('change', function () {
+			var url = $(this).val(); // get selected value
+				if (url) { // require a URL
+					if (excludedSites.indexOf(window.location.host) > -1){
+						window.location = url; // redirect
+					} else {
+						window.location = baseURL.href+url;  // redirect
+					}
+				}
+			return false;
+		});
+	});
+</script>
+
+			<div class="sidebar-wrapper"> 
+
+
+
+	
+		
+		
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-architecture path-developer-docs ">
+			<a href="docs/2.0/architecture/" >
+				<h4 class="sidebar-group-title">Architecture</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/overview/" >
+								Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/design/" >
+								Design
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/architecture/views/elementryview/" >
+									Views
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/logical/" >
+											Logical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/physical/" >
+											Physical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/conceptual/" >
+											Conceptual View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/deployment/" >
+											Deployment View
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/usecase/" >
+								Use Cases
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-features-documentation path-developer-docs ">
+			<a href="docs/2.0/features-documentation/" >
+				<h4 class="sidebar-group-title">Product Features</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/onboarding/" >
+								Onboarding
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/login/" >
+								Login
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/register_org/" >
+								Register Organizations
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/register_user/" >
+								Register Users
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/features-documentation/userrolepermission/" >
+									User Roles and Permissions
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/userprofile/" >
+											User Profile
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/workspace/" >
+											Workspace
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/library/" >
+								Library
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contentlifecycle/" >
+								Content Lifecycle
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contentcreation/" >
+								Content Creation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contenteditor/" >
+								Content Editor
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/features-documentation/guidelines/" >
+									Guidelines
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/intellectualproperty/" >
+											Intellectual Property
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/collaborationpartnership/" >
+								Collaboration and Partnership
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section active section-developer-docs path-developer-docs ">
+			<a href="docs/2.0/developer-docs/" >
+				<h4 class="sidebar-group-title">Developer Documentation</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/installation/" >
+								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/developer-docs/installation/medium_scale_deploy/" >
+									Medium Scale Deployment
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/provisioning_servers/" >
+											Provisioning Servers
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/setup_db/" >
+											Setup Databases
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/deploy_sb_services/" >
+											Deploying Sunbird Services
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/keycloak_realm_configuration/" >
+											Configure Keycloak
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/cust_sunbird/" >
+											Customizing Assets
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/check_installation/" >
+											Check Installation
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/apis/" >
+									API References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=bulkserviceapi" target="_blank">
+											Bulk Upload Service APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=contentapi" target="_blank">
+											Content APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=coursebatchmanapi" target="_blank">
+											Course Batch Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=datasyncapi" target="_blank">
+											Data Sync APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=metricsapi" target="_blank">
+											Metrics APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=notificationapi" target="_blank">
+											Notification APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=orgapi" target="_blank">
+											Organisation Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=userapi" target="_blank">
+											User APIs
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/troubleshooting/" >
+								Troubleshooting
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-faqs path-developer-docs ">
+			<a href="docs/2.0/faqs/" >
+				<h4 class="sidebar-group-title">Frequently asked questions</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/audience/" >
+								Audience
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_format/" >
+								Content Format
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_repo/" >
+								Content Repositories
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/contentreviews/" >
+								Content Review
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_types/" >
+								Content Types
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_upload/" >
+								Content Upload
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/feature/" >
+								Features
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/fixerrors/" >
+								Fix Errors
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/helpsupport/" >
+								Help Support
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/intellectual_propertylicensesstandards/" >
+								Intellectual Property Licenses Standards
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/registrationenrolment/" >
+								Registration and Enrollment
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/signin/" >
+								Sign In
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/taxonomymetadataframework/" >
+								Taxonomy Meta Data Framework
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/user_rightspermissions/" >
+								Users Rights and Permission
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-glossary path-developer-docs ">
+			<a href="docs/2.0/glossary/" >
+				<h4 class="sidebar-group-title">Glossary</h4>
+			</a>
+			
+		</div>
+		<!-- Section End-->
+	
+		
+	
+
+		
+	
+
+		
+	
+
+		
+	
+	<!-- Contribution Sidebar-->
+</div>
+
+			<script>
+				$("a[href$='docs/2.0/developer-docs/installation/upgrading_dbs/']").addClass("sidebar-link-selected");
+			</script>
+		</div>
+    </nav>
+    <div class="content">
+      <div class="inner__content header" id="heading">
+        <h1>Upgrading the Cassandra Database </h1>
+      </div>
+
+      <div id="main-content" class="inner__content">
+			<p class="edit-para text-right">
+				<span>
+			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
+			  </a> &nbsp;&nbsp;
+			  
+			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/2.0/developer-docs/installation/upgrading_dbs.md">
+				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+			  </a> 
+			  | 
+			  <a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+				  Report
+			  </a>
+			  </span>
+			</p>
+          <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+            <span class="toctoggle">[<a id="toctogglelink" class="internal" href="#">hide</a>]</span>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#overview"><span class="tocnumber">1 .</span> <span class="toctext">Overview</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#upgrading-your-cassandra-installation"><span class="tocnumber">2 .</span> <span class="toctext">Upgrading your Cassandra installation</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#check-upgrade-scenarios"><span class="tocnumber">3 .</span> <span class="toctext">Check Upgrade Scenarios</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-4">
+                  <a href="#running-a-release-version-lower-than-14"><span class="tocnumber">3.1 .</span> <span class="toctext">Running a release version lower than 1.4</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#running-a-release-version-greater-than-or-equal-to-release-14"><span class="tocnumber">3.2 .</span> <span class="toctext">Running a release version greater than or equal to release 1.4</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#build"><span class="tocnumber">4 .</span> <span class="toctext">Build</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#deploy"><span class="tocnumber">5 .</span> <span class="toctext">Deploy</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h2 id="overview">Overview</h2>
+
+<p>Using an obsolete version of a database comes with disadvantages like missed opportunities for enhanced features, lack of technical support, incompatibility with software and hardware, and many others. Upgrading your database periodically, therefore is a necessity.    While upgrading, a careful review of the upgrade instructions will make a difference. By understanding what to do beforehand, you can ensure a smooth upgrade and avoid pitfalls and frustrations.
+Read and understand the instructions on this page to plan and execute the upgrade of your Apache Cassandra database.</p>
+
+<h2 id="upgrading-your-cassandra-installation">Upgrading your Cassandra installation</h2>
+
+<p>To upgrade your Cassandra installation, abide by the following sequence:</p>
+
+<ol>
+  <li>Check upgrade scenarios</li>
+  <li>Execute the build</li>
+  <li>Deploy the build</li>
+</ol>
+
+<h2 id="check-upgrade-scenarios">Check Upgrade Scenarios</h2>
+
+<p>Sunbird offers the Cassandra upgrade option from version 1.4.</p>
+
+<ul>
+  <li>
+    <p>If you are on a Sunbird release version lower than version 1.4, ensure that your schemas and tables are not below Sunbird version 1.3</p>
+  </li>
+  <li>
+    <p>Start your upgrade process with information about the version of the Sunbird you are currently running</p>
+  </li>
+  <li>
+    <p>Before you run the upgrade script, check if the release version is lower than, greater than or equal to version 1.4</p>
+  </li>
+</ul>
+
+<h3 id="running-a-release-version-lower-than-14">Running a release version lower than 1.4</h3>
+
+<p>If you are running a version lesser than 1.4, execute the following command:</p>
+
+<ul>
+  <li>Run <strong>cassandra.cql</strong> file</li>
+</ul>
+
+<p>This command creates the schema and tables until release-1.3, ensuring that your schemas and tables fall in line with upgrade requirements.</p>
+
+<p><strong>Note:</strong> Ignore any errors encountered while executing the command. The errors are fixed in later releases.</p>
+
+<h3 id="running-a-release-version-greater-than-or-equal-to-release-14">Running a release version greater than or equal to release 1.4</h3>
+
+<p>If you are on Sunbird release 1.4 or greater, the schemas and tables meet upgrade requirements. Proceed to the next steps of the upgrade process.</p>
+
+<h2 id="build">Build</h2>
+
+<ul>
+  <li>Create a <strong>Cassandra_Build</strong> Jenkins job.</li>
+  <li>Navigate to <strong>sunbird-utils/cassandra-migration</strong> directory and run <code>mvn clean install -DskipTests</code></li>
+  <li>The <strong>cassandra-migration-0.0.1-SNAPSHOT-jar-with-dependencies.jar</strong> is created within the <strong>sunbird-utils/cassandra-migration/target</strong>   directory.</li>
+</ul>
+
+<h2 id="deploy">Deploy</h2>
+
+<ul>
+  <li>Create a <strong>Cassandra_Deploy</strong> Jenkins job</li>
+  <li>Copy the artifact <strong>cassandra-migration-0.0.1-SNAPSHOT-jar-with-dependencies.jar</strong> from <strong>Cassandra_Build</strong> to <strong>Cassandra_Deploy</strong>
+Jenkins job</li>
+  <li>Copy the .jar file to the remote Cassandra machine.</li>
+  <li>
+    <p>Set the following enivronment variables on the Cassandra host:</p>
+
+    <p>a. <strong>sunbird_cassandra_host:</strong> In case of multiple hosts, provide each value separated by a comma<br />
+ b. <strong>sunbird_cassandra_port:</strong> 
+ c. <strong>sunbird_cassandra_username:</strong> Optional 
+ d. <strong>sunbird_cassandra_password:</strong> Optional 
+ e. <strong>sunbird_cassandra_keyspace:</strong> for example: sunbird</p>
+  </li>
+  <li>
+    <p>Ensure that the Cassandra keyspace is created. If not, execute the following command:</p>
+
+    <p><code>CREATE KEYSPACE IF NOT EXISTS sunbird WITH replication = {'class':'SimpleStrategy','replication_factor':1};</code></p>
+  </li>
+  <li>While you ensure the availability of keyspaces, proceed to run the following command on your remote cassandra machine:</li>
+</ul>
+
+<p>
+  <code>Run java -cp "cassandra-migration-0.0.1-SNAPSHOT-jar-with-dependencies.jar com.contrastsecurity.cassandra.migration.utils.MigrationScriptEntryPoint</code>
+</p>
+
+<p>Add any new database change as a file to the following location in your codebase:</p>
+
+<ul>
+  <li><strong>resources/db/migration/cassandra</strong></li>
+  <li>The inclusion criteria of files is based on the file naming convention.</li>
+  <li>The files should essentially follow this convention.</li>
+  <li><strong>V{major_version_no}.{minor_version_no}_{filename}.cql</strong></li>
+</ul>
+
+<p>
+  <strong>For example:</strong>
+</p>
+
+<ul>
+  <li>V1.0_cassandra.cql    -  correct file format</li>
+  <li>V1.0.1_cassandra.cql  - incorrect file format</li>
+</ul>
+
+<p>In case a file fails to execute, the script will not execute further until you fix the issue. After fixing the file, delete the corresponding wrong entry within the cassandra_migration_version table. This table is auto-generated during the upgrade process.</p>
+
+<p>
+  <strong>Sample table structure</strong>
+</p>
+
+<ul>
+  <li>version text (PRIMARY KEY)</li>
+  <li>checksum (int)</li>
+  <li>description (text)</li>
+  <li>execution_time (int)</li>
+  <li>installed_by (text)</li>
+  <li>installed_on (timestamp)</li>
+  <li>installed_rank (int)</li>
+  <li>script (text)</li>
+  <li>success (boolean)</li>
+  <li>type (text)</li>
+  <li>version_rank (int)</li>
+</ul>
+
+
+          
+          <hr />
+          
+          <p class="edit-para text-right">
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/edit/2.0/developer-docs/installation/upgrading_dbs.md" title="Fix this page">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
+		  </p>
+		  <a href="docs/2.0/developer-docs/installation/upgrading_dbs/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+          
+      </div>
+    </div>
+    <div class="page-footer">
+		<footer class="footer">
+	<div class="footer__top">
+		<div class="container">
+			<div class="row">
+				
+			<div class="col-md-4 col-sm-12">
+			</div>
+			
+			<div class="col-md-2 col-sm-6 ">
+				<ul>
+					<li><a href="about/">About Sunbird</a></li>
+					<li><a href="contact/">Contact Us</a></li>
+					<li><a href="privacy-policy/">Privacy Policy</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-2 col-sm-6 sideline">
+				<ul>
+					<li><a href="docs/">Documentation</a></li>
+					<li><a href="features/">Features</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-2 col-sm-12">
+			</div>
+			
+		</div>
+	</div>
+</footer>
+
+	</div>
+  </div>
+  <script type="text/javascript">
+	//TOC Toggle
+    $(function() {
+        $.toc.clickHideButton();
+    });
+    //Scroll to top
+    $(document).ready(function () {
+		$(".content").scroll(function () {
+			if ($(this).scrollTop() > 250) {
+				$('.scrollup').fadeIn();
+			} else {
+				$('.scrollup').fadeOut();
+			}
+		});
+	});
+	$('#toc a').each(function(){
+		var url = this.href.replace(baseURL.href, "");
+		this.href = 'docs/2.0/developer-docs/installation/upgrading_dbs/' + url;
+    })
+  </script>
+  </body>
+</html>

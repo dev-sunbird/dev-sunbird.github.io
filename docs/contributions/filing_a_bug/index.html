@@ -1,0 +1,1231 @@
+
+
+
+
+	
+		
+		
+	
+	
+
+	
+	
+
+	
+			
+		
+		
+		
+		
+		
+			
+			
+		
+	
+
+	
+	
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<base id="baseURL" href="/" />
+<script>
+	// Dynamic Base URL
+	function getBase(){
+		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io/"];
+		baseURL = document.getElementById('baseURL');
+		if (excludedSites.indexOf(window.location.host) > -1){
+			baseURL.href="/";
+		} else {
+			baseURL.href="/releases/release-1.0.0/";
+		}
+	}
+	getBase();
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#65d3f7">
+<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+
+<title>Sunbird Guidelines for filing a bug</title>
+<meta name="description" content="Sunbird Site How to file an effective bug report?"/>
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="last-modified" content="2018-03-15 17:37:19 +0530">
+<meta http-equiv="Expires" content="600" />
+
+<!--Build Details-->
+<meta name="buildVersion" content="release-1.0.0" />
+<meta name="buildNo" content="22" />
+<!--/Build Details-->
+
+<!-- CDN's-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<!-- /CDN's-->
+
+<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
+<link rel="stylesheet" href="css/style.css?15032018"  />
+<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
+<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
+
+	<meta name="robots" content="noindex, nofollow">
+	
+  </head>
+  <body id="body">
+  <div class="container inner container-height docs 2.0 ">
+    <header class="logo-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        </a>
+      </div>
+      <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </header>
+    <nav class="sidebar-container" id="mobile-dropdown">
+		<div class="inner__sidebar">
+			
+				<div class="search-cover">
+	<form method="get" action="https://www.google.com/search" target="_blank">
+		<input type="text" value="" name="q" placeholder="Search"/ class="search-input" title="Enter keyword to search">
+		<input type="hidden" value="en" name="hl" />
+		<input type="hidden" name="sitesearch" value="http://www.sunbird.org" />
+		<input type="hidden" value="lang_en" name="lr" />
+		<button type="submit" onclick="submit()" class="search-btn" title="Search">
+			<i class="fa fa-search"></i>
+		</button>
+	</form>
+</div>
+
+			
+			
+
+
+	
+		
+		
+	
+	
+
+	
+	
+
+	
+			
+		
+		
+		
+		
+		
+			
+			
+		
+	
+
+	
+	
+
+
+<select id="docs-version">
+
+	
+		
+		
+		
+			<option value="docs/contributions/filing_a_bug/" selected=selected>
+				Version 2.0
+				
+					( Latest )
+				
+				</option>
+		
+	
+
+	
+		
+		
+		
+			<option value="docs/contributions/filing_a_bug/" >
+				Version 1.0
+				
+				</option>
+		
+	
+
+	
+
+	
+
+</select>
+
+<script>
+	$(function(){
+		$('#docs-version').on('change', function () {
+			var url = $(this).val(); // get selected value
+				if (url) { // require a URL
+					if (excludedSites.indexOf(window.location.host) > -1){
+						window.location = url; // redirect
+					} else {
+						window.location = baseURL.href+url;  // redirect
+					}
+				}
+			return false;
+		});
+	});
+</script>
+
+			<div class="sidebar-wrapper"> 
+
+
+
+	
+		
+		
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-architecture path-filing_a_bug active">
+			<a href="docs/2.0/architecture/" >
+				<h4 class="sidebar-group-title">Architecture</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/overview/" >
+								Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/design/" >
+								Design
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/architecture/views/elementryview/" >
+									Views
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/logical/" >
+											Logical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/physical/" >
+											Physical View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/conceptual/" >
+											Conceptual View
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/architecture/views/deployment/" >
+											Deployment View
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/architecture/usecase/" >
+								Use Cases
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-features-documentation path-filing_a_bug active">
+			<a href="docs/2.0/features-documentation/" >
+				<h4 class="sidebar-group-title">Product Features</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/onboarding/" >
+								Onboarding
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/login/" >
+								Login
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/register_org/" >
+								Register Organizations
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/register_user/" >
+								Register Users
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/features-documentation/userrolepermission/" >
+									User Roles and Permissions
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/userprofile/" >
+											User Profile
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/workspace/" >
+											Workspace
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/library/" >
+								Library
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contentlifecycle/" >
+								Content Lifecycle
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contentcreation/" >
+								Content Creation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/contenteditor/" >
+								Content Editor
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/features-documentation/guidelines/" >
+									Guidelines
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/features-documentation/intellectualproperty/" >
+											Intellectual Property
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/features-documentation/collaborationpartnership/" >
+								Collaboration and Partnership
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-developer-docs path-filing_a_bug active">
+			<a href="docs/2.0/developer-docs/" >
+				<h4 class="sidebar-group-title">Developer Documentation</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/installation/" >
+								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/developer-docs/installation/medium_scale_deploy/" >
+									Medium Scale Deployment
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/provisioning_servers/" >
+											Provisioning Servers
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/setup_db/" >
+											Setup Databases
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/deploy_sb_services/" >
+											Deploying Sunbird Services
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/keycloak_realm_configuration/" >
+											Configure Keycloak
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/cust_sunbird/" >
+											Customizing Assets
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/developer-docs/installation/check_installation/" >
+											Check Installation
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="docs/2.0/apis/" >
+									API References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=bulkserviceapi" target="_blank">
+											Bulk Upload Service APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=contentapi" target="_blank">
+											Content APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=coursebatchmanapi" target="_blank">
+											Course Batch Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=datasyncapi" target="_blank">
+											Data Sync APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=metricsapi" target="_blank">
+											Metrics APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=notificationapi" target="_blank">
+											Notification APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=orgapi" target="_blank">
+											Organisation Management APIs
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="docs/2.0/apis/specs/?api=userapi" target="_blank">
+											User APIs
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/developer-docs/troubleshooting/" >
+								Troubleshooting
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-faqs path-filing_a_bug active">
+			<a href="docs/2.0/faqs/" >
+				<h4 class="sidebar-group-title">Frequently asked questions</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/audience/" >
+								Audience
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_format/" >
+								Content Format
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_repo/" >
+								Content Repositories
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/contentreviews/" >
+								Content Review
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_types/" >
+								Content Types
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/content_upload/" >
+								Content Upload
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/feature/" >
+								Features
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/fixerrors/" >
+								Fix Errors
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/helpsupport/" >
+								Help Support
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/intellectual_propertylicensesstandards/" >
+								Intellectual Property Licenses Standards
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/registrationenrolment/" >
+								Registration and Enrollment
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/signin/" >
+								Sign In
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/taxonomymetadataframework/" >
+								Taxonomy Meta Data Framework
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="docs/2.0/faqs/user_rightspermissions/" >
+								Users Rights and Permission
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
+		<div class="section  section-glossary path-filing_a_bug active">
+			<a href="docs/2.0/glossary/" >
+				<h4 class="sidebar-group-title">Glossary</h4>
+			</a>
+			
+		</div>
+		<!-- Section End-->
+	
+		
+	
+
+		
+	
+
+		
+	
+
+		
+	
+	<!-- Contribution Sidebar-->
+</div>
+
+			<script>
+				$("a[href$='docs/contributions/filing_a_bug/']").addClass("sidebar-link-selected");
+			</script>
+		</div>
+    </nav>
+    <div class="content">
+      <div class="inner__content header" id="heading">
+        <h1>Guidelines for filing a bug </h1>
+      </div>
+
+      <div id="main-content" class="inner__content">
+			<p class="edit-para text-right">
+				<span>
+			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
+			  </a> &nbsp;&nbsp;
+			  
+			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/contributions/filing_a_bug.md">
+				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+			  </a> 
+			  | 
+			  <a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+				  Report
+			  </a>
+			  </span>
+			</p>
+          <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+            <span class="toctoggle">[<a id="toctogglelink" class="internal" href="#">hide</a>]</span>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#overview"><span class="tocnumber">1 .</span> <span class="toctext">Overview</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#separate-out-the-bug"><span class="tocnumber">2 .</span> <span class="toctext">Separate out the bug</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#single-issue-for-a-single-bug"><span class="tocnumber">3 .</span> <span class="toctext">Single issue for a single bug</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#writing-an-effective-bug-report"><span class="tocnumber">4 .</span> <span class="toctext">Writing an effective bug report</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#issue-title"><span class="tocnumber">4.1 .</span> <span class="toctext">Issue Title</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#a-concise-issue-description"><span class="tocnumber">4.2 .</span> <span class="toctext">A concise issue description</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#sequence-of-steps-to-reproduce-bug"><span class="tocnumber">4.3 .</span> <span class="toctext">Sequence of steps to reproduce bug</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-8">
+                  <a href="#actual-behavior"><span class="tocnumber">4.4 .</span> <span class="toctext">Actual behavior</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-9">
+                  <a href="#expected-behavior"><span class="tocnumber">4.5 .</span> <span class="toctext">Expected behavior</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-10">
+                  <a href="#environment-in-which-the-issue-is-encountered"><span class="tocnumber">4.6 .</span> <span class="toctext">Environment in which the issue is encountered</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-11">
+                  <a href="#supporting-files"><span class="tocnumber">4.7 .</span> <span class="toctext">Supporting files</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-12">
+                  <a href="#sunbird-version"><span class="tocnumber">4.8 .</span> <span class="toctext">Sunbird Version</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-13">
+                  <a href="#issue-category"><span class="tocnumber">4.9 .</span> <span class="toctext">Issue Category</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-14">
+                  <a href="#type-and-severity"><span class="tocnumber">4.10 .</span> <span class="toctext">Type and severity</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-15">
+              <a href="#submit"><span class="tocnumber">5 .</span> <span class="toctext">Submit</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-16">
+              <a href="#following-up"><span class="tocnumber">6 .</span> <span class="toctext">Following up</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h2 id="overview">Overview</h2>
+
+<p>Writing a good bug report is not hard. Just follow a few effective techniques and you will be writing super bug reports in no time at all.</p>
+
+<p>It is worth noting that there are a few alternative options for support:</p>
+
+<ol>
+  <li>Check the <a href="http://www.sunbird.org/developer-docs/troubleshooting/" target="_blank">Sunbird troubleshooting</a> page for a solution. If there is no solution for your issue, the following process will guide you in figuring out what to do.</li>
+  <li>The bug you have experienced might be faced by others also, it is recommended to check the <a href="https://github.com/project-sunbird/project-sunbird.github.io/issues" target="_blank">Sunbird issue tracker</a></li>
+  <li>If the bug report exists, you may click “subscribe” to follow any developments.</li>
+</ol>
+
+<p>To file a bug report that is effective, ensure the following:</p>
+
+<ul>
+  <li>Separate out the bug</li>
+  <li>Single issue for a single bug</li>
+  <li>Writing an effective bug report</li>
+  <li>Submit</li>
+  <li>Follow up</li>
+</ul>
+
+<h2 id="separate-out-the-bug">Separate out the bug</h2>
+<p>The first step in in writing an effective bug report is to find exactly:</p>
+
+<ul>
+  <li>
+    <p><strong>What is the problem?</strong></p>
+
+    <p>Clearly and precisely state what exactly is wrong?</p>
+  </li>
+  <li>
+    <p><strong>How to reproduce it?</strong></p>
+
+    <ul>
+      <li>If you have an explicit understanding about what exactly is wrong, you can reproduce an example of the problem</li>
+      <li>If you can answer both the questions and reliably reproduce an example of the problem, you are successful in distinctly separating out the bug.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="single-issue-for-a-single-bug">Single issue for a single bug</h2>
+
+<p>Since Sunbird is open source, there is always a possibility that you encounter more than one bug, Incase, if you have multiple issues, it is better to file them separately, so that they can be tracked more effectively</p>
+
+<h2 id="writing-an-effective-bug-report">Writing an effective bug report</h2>
+
+<p>Before you raise an issue, make sure to check the following questions that are used for filing a bug report, answers to these allows you to file an efficient and clear in the process of filing bug reports.</p>
+
+<h3 id="issue-title">Issue Title</h3>
+
+<p>Everything starts with a title. It must be clear and descriptive so that you can get an idea of what the report is about at a glance. It also has to be clearly differentiated from all other existing bug reports. A good way to think about bug titles is that your bug report should atleast answer the following questions:</p>
+
+<ol>
+  <li>What is the problem?</li>
+  <li>Where does the problem occur?</li>
+  <li>What action must the user perform to trigger the problem?</li>
+</ol>
+
+<p>And keep in mind, these questions must be answered in less than 140 characters!</p>
+
+<p>The title should describe the problem as best as possible. Remember that the title is read more often than any other part of the bug report.</p>
+
+<p>After submitting the issue, you can modify the title.</p>
+
+<h3 id="a-concise-issue-description">A concise issue description</h3>
+
+<p>A good bug report has a clear and concise description. This is an opportunity to explain the defect and put across all the relevant details.Describing something accurately and concisely is best way to help and fix the bug. Also,remember that the person reading your description has not seen the bug, so avoid assumptions.</p>
+
+<h3 id="sequence-of-steps-to-reproduce-bug">Sequence of steps to reproduce bug</h3>
+
+<p>One of the most important steps in a good bug report is providing a step-by-step account of exactly what you did to find the defect. You can use software tools that catch your key strokes, or record screenshots or video files as you test. Other times you’ll be writing from memory, so take notes as you go. Make sure that you test your own steps again before submitting the bug.</p>
+
+<p>Ensure the following:
+- A bug report needs clear instructions, so that others can understand and exclusively reproduce it
+- Include good set of instructions i.e a numbered list that details each button press, or menu selection</p>
+
+<h3 id="actual-behavior">Actual behavior</h3>
+
+<ul>
+  <li>In contrast to the expected behavior, describe what currently happens when the bug is present.</li>
+</ul>
+
+<h3 id="expected-behavior">Expected behavior</h3>
+
+<ul>
+  <li>Describe what actually is correct workflow or exactly should happen if the bug was fixed.</li>
+</ul>
+
+<h3 id="environment-in-which-the-issue-is-encountered">Environment in which the issue is encountered</h3>
+
+<ul>
+  <li>Name the operating system and version you are using, such as “Windows 7”, or “Mac OS X 10.7.5” etc.</li>
+  <li>Name the browser and version which you are using, such as “Chrome 63” or “Firefox Quantum” or “Microsoft Edge”</li>
+</ul>
+
+<h3 id="supporting-files">Supporting files</h3>
+
+<p>Supporting material is always gratefully received by those assigned with fixing defects. Usually the files can be be screenshots, but it can include audio and video files also. Annotate your screenshots to highlight problems.</p>
+
+<p>The visuals are always looked at first prior to reading the text you provide. If you can convey the issue in a single screenshot, you’re helping save precious time.</p>
+
+<p>So, ensure to:</p>
+
+<ul>
+  <li>Supplement your bug report with an image, audio, or crash log that helps others reproduce the issue, attach these files.</li>
+</ul>
+
+<h3 id="sunbird-version">Sunbird Version</h3>
+
+<p>The version of Sunbird in which you discovered the bug (e.g., 1.3). If you can reproduce the problem in more than one version, write down the earliest.</p>
+
+<h3 id="issue-category">Issue Category</h3>
+
+<p>A “bug report” is usually for when Sunbird does something which is not what it is expected to. An example of a bug could be: a link to a page, instead of opening it shows an error.</p>
+
+<p>Tasks, feature requests and support requests are beyond the scope of this article.</p>
+
+<h3 id="type-and-severity">Type and severity</h3>
+
+<p>Every bug will have a different type and severity.These fields go hand-in-hand. A functional bug will generally be treated more seriously than a suggestion. No product ships with zero defects, so having bugs categorized correctly in terms of type and severity helps the decision-making process with regards to what gets fixed and what doesn’t. If you don’t understand these fields, ask for instruction. It also helps to review other bug entries the issue tracker.</p>
+
+<p>You can use the following tags in your bug reports:</p>
+
+<p>
+  <strong>Use “Critical” in case:</strong>
+</p>
+
+<ul>
+  <li>Encounter Data loss</li>
+  <li>Data Corruption</li>
+  <li>Inability to save work</li>
+  <li>Hangs and crashes</li>
+</ul>
+
+<p>
+  <strong>Use “Major” in case:</strong>
+</p>
+
+<ul>
+  <li>A Common feature is incorrectly/not functioning</li>
+  <li>Otherwise critical issues, if they happen only in some very rare cases.</li>
+  <li>All other bugs excluding the specified ones are as <strong>normal</strong> if the priority is not set.</li>
+</ul>
+
+<p><strong>Note:</strong> While a bug that you are experiencing is important to you, developers balance it with all the other known bugs.</p>
+
+<h2 id="submit">Submit</h2>
+
+<p>Click <strong>Submit button</strong> to submit your bug report to the issue tracker.</p>
+
+<h2 id="following-up">Following up</h2>
+
+<p>Once a developer marks a bug as fixed, it is a good idea to ensure that it is completely fixed. To test, download the latest build.</p>
+
+          
+          <hr />
+          
+          <p class="edit-para text-right">
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/edit/contributions/filing_a_bug.md" title="Fix this page">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a> |
+			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
+				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
+		  </p>
+		  <a href="docs/contributions/filing_a_bug/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+          
+      </div>
+    </div>
+    <div class="page-footer">
+		<footer class="footer">
+	<div class="footer__top">
+		<div class="container">
+			<div class="row">
+				
+			<div class="col-md-4 col-sm-12">
+			</div>
+			
+			<div class="col-md-2 col-sm-6 ">
+				<ul>
+					<li><a href="about/">About Sunbird</a></li>
+					<li><a href="contact/">Contact Us</a></li>
+					<li><a href="privacy-policy/">Privacy Policy</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-2 col-sm-6 sideline">
+				<ul>
+					<li><a href="docs/">Documentation</a></li>
+					<li><a href="features/">Features</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-2 col-sm-12">
+			</div>
+			
+		</div>
+	</div>
+</footer>
+
+	</div>
+  </div>
+  <script type="text/javascript">
+	//TOC Toggle
+    $(function() {
+        $.toc.clickHideButton();
+    });
+    //Scroll to top
+    $(document).ready(function () {
+		$(".content").scroll(function () {
+			if ($(this).scrollTop() > 250) {
+				$('.scrollup').fadeIn();
+			} else {
+				$('.scrollup').fadeOut();
+			}
+		});
+	});
+	$('#toc a').each(function(){
+		var url = this.href.replace(baseURL.href, "");
+		this.href = 'docs/contributions/filing_a_bug/' + url;
+    })
+  </script>
+  </body>
+</html>
