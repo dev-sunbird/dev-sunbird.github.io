@@ -37,7 +37,7 @@ module Jekyll
       paths = context.registers[:page]["url"].split('/')
       this_version_branch = paths[2]
       path = @path ? @path.gsub('path=', '').gsub("\"", ''): '#'
-      path = 'docs/'+this_version_branch+'/'+path
+      #path = 'docs/'+this_version_branch+'/'+path
       id = @id ? @id.gsub('id=', '').gsub("\"", ''): 'demo'
       
       '<div id="'+id+'"></div><script> $(document).ready(function(){ var animData = { wrapper: document.getElementById("'+id+'"), animType: "svg", loop: true, prerender: true, autoplay: true, path: "'+path+'" }; var anim = bodymovin.loadAnimation(animData); });</script>'
