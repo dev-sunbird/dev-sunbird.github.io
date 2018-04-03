@@ -15,7 +15,7 @@
 		{% endif %}
 		{% assign sections = finalurl | split: '/' %}
 		<div class="section {% if (sections[2] == paths[3]) || ((if paths[3] == 'apis') && (sections[2] = 'developer-docs'))%}active{% endif %} section-{{sections[2]}} path-{{paths[3]}} {{contribution_class}}">
-			<a href="{{finalurl}}" {% if menu.target %}target="_{{menu.target}}"{% endif %}>
+			<a href="/{{finalurl}}" {% if menu.target %}target="_{{menu.target}}"{% endif %}>
 				<h4 class="sidebar-group-title">{{menu.title}}</h4>
 			</a>
 			{% if menu.subfolderitems[0] %}
@@ -32,7 +32,7 @@
 								{% else %}
 									{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 								{% endif %}
-								<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+								<a href="/{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
 									{{submenu.page}}
 								</a>
 								<ul class="sidebar-group">
@@ -45,7 +45,7 @@
 										{% else %}
 											{% assign subsubmenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: subsubmenu.url %}
 										{% endif %}
-										<a  href="{{subsubmenufinalurl}}" {% if subsubmenu.target %}target="_{{subsubmenu.target}}"{% endif %}>
+										<a  href="/{{subsubmenufinalurl}}" {% if subsubmenu.target %}target="_{{subsubmenu.target}}"{% endif %}>
 											{{subsubmenu.page}}
 										</a>
 									</li>
@@ -60,7 +60,7 @@
 							{% else %}
 								{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 							{% endif %}
-							<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+							<a href="/{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
 								{{submenu.page}}
 							</a>
 						{% endif %}
