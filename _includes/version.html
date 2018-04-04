@@ -21,11 +21,12 @@
 		$('#docs-version').on('change', function () {
 			var url = $(this).val(); // get selected value
 				if (url) { // require a URL
-					if (excludedSites.indexOf(window.location.host) > -1){
+					window.location = url; // redirect
+					/*if (excludedSites.indexOf(window.location.host) > -1){
 						window.location = url; // redirect
 					} else {
 						window.location = baseURL.href+url;  // redirect
-					}
+					}*/
 				}
 			return false;
 		});
