@@ -26,9 +26,6 @@
 			{% endif %}
 			{% include version.html %}
 			{% include sidebar.html %}
-			<script>
-				$("a[href$='{{page.url | remove_first: "/" }}']").addClass("sidebar-link-selected");
-			</script>
 		</div>
     </nav>
     <div class="content">
@@ -63,7 +60,7 @@
 			<a target="_blank" href="{{site.docsRepo}}/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
 		  </p>
-		  <a href="{{page.url | remove_first: "/" }}#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+		  <a href="{{page.url }}#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
           
       </div>
     </div>
@@ -88,7 +85,7 @@
 	});
 	$('#toc a').each(function(){
 		var url = this.href.replace(baseURL.href, "");
-		this.href = '{{page.url | remove_first: "/" }}' + url;
+		this.href = '{{page.url  }}' + url;
     })
   </script>
   </body>

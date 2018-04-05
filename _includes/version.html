@@ -2,10 +2,10 @@
 <select id="docs-version">
 {% for version in site.data.versions %}
 	{% if version.published == true %}
-		{% assign url = page.url | remove_first: "/" | replace: this_version_branch,version.branch %}
+		{% assign url = page.url  | replace: this_version_branch,version.branch %}
 		
 		{% if url %}
-			<option value="/{{ url }}" {% if version.branch == this_version_branch %}selected=selected{% endif %}>
+			<option value="{{ url }}" {% if version.branch == this_version_branch %}selected=selected{% endif %}>
 				Version {{ version.name }}
 				{% if version.latest == true %}
 					( Latest )

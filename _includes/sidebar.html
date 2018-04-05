@@ -9,13 +9,13 @@
 		{% if menu.type == 'absolute' %}
 			{% assign finalurl = menu.url %}
 		{% elsif menu.type == 'relative' %}
-			{% assign finalurl = "docs/" | append: this_version_branch | append: "/" | append: menu.url %}
+			{% assign finalurl = "/docs/" | append: this_version_branch | append: "/" | append: menu.url %}
 		{% else %}
-			{% assign finalurl = "docs/" | append: this_version_branch | append: "/" | append: menu.url %}
+			{% assign finalurl = "/docs/" | append: this_version_branch | append: "/" | append: menu.url %}
 		{% endif %}
 		{% assign sections = finalurl | split: '/' %}
-		<div class="section {% if (sections[2] == paths[3]) || ((if paths[3] == 'apis') && (sections[2] = 'developer-docs'))%}active{% endif %} section-{{sections[2]}} path-{{paths[3]}} {{contribution_class}}">
-			<a href="/{{finalurl}}" {% if menu.target %}target="_{{menu.target}}"{% endif %}>
+		<div class="section {% if (sections[3] == paths[3]) || ((if paths[3] == 'apis') && (sections[3] = 'developer-docs'))%}active{% endif %} section-{{sections[3]}} path-{{paths[3]}} {{contribution_class}}">
+			<a href="{{finalurl}}" {% if menu.target %}target="_{{menu.target}}"{% endif %}>
 				<h4 class="sidebar-group-title">{{menu.title}}</h4>
 			</a>
 			{% if menu.subfolderitems[0] %}
@@ -28,11 +28,11 @@
 								{% if submenu.type == 'absolute' %}
 									{% assign submenufinalurl = submenu.url %}
 								{% elsif submenu.type == 'relative' %}
-									{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
+									{% assign submenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 								{% else %}
-									{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
+									{% assign submenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 								{% endif %}
-								<a href="/{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+								<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
 									{{submenu.page}}
 								</a>
 								<ul class="sidebar-group">
@@ -41,11 +41,11 @@
 										{% if subsubmenu.type == 'absolute' %}
 											{% assign subsubmenufinalurl = submenu.url %}
 										{% elsif subsubmenu.type == 'relative' %}
-											{% assign subsubmenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: subsubmenu.url %}
+											{% assign subsubmenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: subsubmenu.url %}
 										{% else %}
-											{% assign subsubmenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: subsubmenu.url %}
+											{% assign subsubmenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: subsubmenu.url %}
 										{% endif %}
-										<a  href="/{{subsubmenufinalurl}}" {% if subsubmenu.target %}target="_{{subsubmenu.target}}"{% endif %}>
+										<a  href="{{subsubmenufinalurl}}" {% if subsubmenu.target %}target="_{{subsubmenu.target}}"{% endif %}>
 											{{subsubmenu.page}}
 										</a>
 									</li>
@@ -56,11 +56,11 @@
 							{% if submenu.type == 'absolute' %}
 								{% assign submenufinalurl = submenu.url %}
 							{% elsif submenu.type == 'relative' %}
-								{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
+								{% assign submenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 							{% else %}
-								{% assign submenufinalurl = "docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
+								{% assign submenufinalurl = "/docs/" | append: this_version_branch | append: "/" | append: submenu.url %}
 							{% endif %}
-							<a href="/{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
+							<a href="{{submenufinalurl}}" {% if submenu.target %}target="_{{submenu.target}}"{% endif %}>
 								{{submenu.page}}
 							</a>
 						{% endif %}
@@ -75,3 +75,6 @@
 	{% endfor %}
 	<!-- Contribution Sidebar-->
 </div>
+<script>
+	$("a[href$='{{page.url }}']").addClass("sidebar-link-selected");
+</script>
