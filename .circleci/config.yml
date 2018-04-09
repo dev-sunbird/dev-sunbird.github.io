@@ -14,10 +14,8 @@ jobs:
         command: |
           if [ "$CIRCLE_BRANCH" != "dev" ]
           then
-          echo "baseurl: /site/$CIRCLE_PR_NUMBER"/ >> _config.yml
           echo "buildVersion: Site PR - $CIRCLE_PR_NUMBER" >> _config.yml
           else
-          echo "baseurl: /review/" >> _config.yml
           echo "buildVersion: Commit" >> _config.yml
           fi
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
@@ -34,14 +32,14 @@ jobs:
            cd _site
            if [ "$CIRCLE_BRANCH" != "dev" ]
            then
-           aws s3 sync --delete --quiet . s3://sunbird-trial/site/$CIRCLE_PR_NUMBER
+           aws s3 sync --delete --quiet . s3://sunbird-trial/site-pr/$CIRCLE_PR_NUMBER
            prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER)
            username=$(echo "${prdata}" | jq '.user.login')
            contributor=${username//\"/} 
            curl \
               -X POST \
               -u $guser:x-oauth-basic \
-              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request - http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/site/'"$CIRCLE_PR_NUMBER"' ."}' \
+              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request - http://site-pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
               https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER/comments
            else
            aws s3 sync --delete --quiet . s3://sunbird-trial/review/
@@ -59,8 +57,7 @@ jobs:
       # Run Build command
       - type: shell
         command: |
-          echo "baseurl: /releases/$CIRCLE_TAG/" >> _config.yml
-          echo "buildVersion: $CIRCLE_TAG" >> _config.yml
+          echo "buildVersion: Release - $CIRCLE_TAG" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x fetch.sh
           ./fetch.sh
@@ -117,7 +114,7 @@ jobs:
           cp -R .git/ dev-sunbird.github.io/
           cd dev-sunbird.github.io/
           git add -A
-          git commit -m "$CIRCLE_TAG"
+          git commit -m "Release - $CIRCLE_TAG"
           git push origin master
           
 workflows:
