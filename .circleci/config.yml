@@ -39,7 +39,7 @@ jobs:
            curl \
               -X POST \
               -u $guser:x-oauth-basic \
-              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request - site-pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
+              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request - http://site-pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
               https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER/comments
            else
            aws s3 sync --delete --quiet . s3://sunbird-trial/review/
