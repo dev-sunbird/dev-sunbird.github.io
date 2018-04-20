@@ -32,14 +32,14 @@ jobs:
            cd _site
            if [ "$CIRCLE_BRANCH" != "dev" ]
            then
-           aws s3 sync --delete --quiet . s3://sunbird-trial/site-pr/$CIRCLE_PR_NUMBER
+           aws s3 sync --delete --quiet . s3://sunbird-trial/pr-site/$CIRCLE_PR_NUMBER
            prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER)
            username=$(echo "${prdata}" | jq '.user.login')
            contributor=${username//\"/} 
            curl \
               -X POST \
               -u $guser:x-oauth-basic \
-              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request - http://site-pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
+              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request <br/> - http://pr-site-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
               https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER/comments
            else
            aws s3 sync --delete --quiet . s3://sunbird-trial/review/
