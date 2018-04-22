@@ -4,6 +4,15 @@ jobs:
     working_directory: /project/workplace/
     docker:
       - image: lakhanmandloi/docker-ubuntu-ruby-python-npm
+    environment:
+      repoSite: dev-sunbird/dev-sunbird.github.io
+      repoSiteFolder: dev-sunbird.github.io
+      repoDocs: dev-sunbird/docs
+      qaUrl: qadocs.sunbird.org
+      s3Bucket: sunbird-trial
+      s3Endpoint: .s3-website.ap-south-1.amazonaws.com
+      subdomainPrefixDocs: pr-docs
+      subdomainPrefixSite: pr-site
     steps:
     
       #Checkout
@@ -21,8 +30,6 @@ jobs:
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           chmod +x fetch.sh
           ./fetch.sh
-          pwd
-          ls
           chmod +x version.sh
           ./version.sh
           bundle exec jekyll build 
@@ -32,17 +39,18 @@ jobs:
            cd _site
            if [ "$CIRCLE_BRANCH" != "dev" ]
            then
-           aws s3 sync --delete --quiet . s3://sunbird-trial/pr-site/$CIRCLE_PR_NUMBER
-           prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER)
-           username=$(echo "${prdata}" | jq '.user.login')
-           contributor=${username//\"/} 
+           aws s3 sync --delete --quiet . s3://$s3Bucket/subdomainPrefixSite/$CIRCLE_PR_NUMBER
+           prData=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repoSite/issues/$CIRCLE_PR_NUMBER)
+           userName=$(echo "${prData}" | jq '.user.login')
+           contributor=${userName//\"/} 
+           siteUrl='http://'$subdomainPrefixSite"-"$CIRCLE_PR_NUMBER"."$qaUrl
            curl \
               -X POST \
               -u $guser:x-oauth-basic \
-              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request <br/> - http://pr-site-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org ."}' \
-              https://api.github.com/repos/dev-sunbird/dev-sunbird.github.io/issues/$CIRCLE_PR_NUMBER/comments
+              -d '{"body": "Hello @'"$contributor"',<br/> _This is a auto-generated response._ <br/> Click the URL for review pull request <br/> - '"$siteUrl"' ."}' \
+              https://api.github.com/repos/$repoSite/issues/$CIRCLE_PR_NUMBER/comments
            else
-           aws s3 sync --delete --quiet . s3://sunbird-trial/review/
+           aws s3 sync --delete --quiet . s3://$s3Bucket/review/
            fi
            
   staging:
@@ -69,8 +77,7 @@ jobs:
       - type: shell
         command: |
            cd _site
-           aws s3 sync --delete . s3://sunbird-trial/releases/$CIRCLE_TAG
-          
+           aws s3 sync --delete . s3://$s3Bucket/releases/$CIRCLE_TAG
   prod:
     working_directory: /project/workspace/
     docker:
@@ -96,7 +103,7 @@ jobs:
           cd ..
           mkdir downloads
           cd downloads
-          aws s3 sync --delete s3://sunbird-trial/releases/$CIRCLE_TAG .
+          aws s3 sync --delete s3://$s3Bucket/releases/$CIRCLE_TAG .
            
       # Deploy to Gitpages
       - type: shell
@@ -104,15 +111,14 @@ jobs:
           cd ..
           mkdir deploy
           cd deploy
-          git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git
-          cd dev-sunbird.github.io
-          git checkout master
+          git clone git@github.com:$repoSite.git origin/master
+          cd $repoSiteFolder
           cp -R .git/ ../
           rm -rf *
           cd ..
-          cp -R ../downloads/* dev-sunbird.github.io/
-          cp -R .git/ dev-sunbird.github.io/
-          cd dev-sunbird.github.io/
+          cp -R ../downloads/* $repoSiteFolder/
+          cp -R .git/ $repoSiteFolder/
+          cd $repoSiteFolder/
           git add -A
           git commit -m "Release - $CIRCLE_TAG"
           git push origin master
