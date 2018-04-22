@@ -39,7 +39,7 @@ jobs:
            cd _site
            if [ "$CIRCLE_BRANCH" != "dev" ]
            then
-           aws s3 sync --delete --quiet . s3://$s3Bucket/subdomainPrefixSite/$CIRCLE_PR_NUMBER
+           aws s3 sync --delete --quiet . s3://$s3Bucket/$subdomainPrefixSite/$CIRCLE_PR_NUMBER
            prData=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repoSite/issues/$CIRCLE_PR_NUMBER)
            userName=$(echo "${prData}" | jq '.user.login')
            contributor=${userName//\"/} 
