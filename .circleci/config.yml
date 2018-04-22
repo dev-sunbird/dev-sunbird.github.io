@@ -57,6 +57,15 @@ jobs:
     working_directory: /project/workplace/
     docker:
       - image: lakhanmandloi/docker-ubuntu-ruby-python-npm
+    environment:
+      repoSite: dev-sunbird/dev-sunbird.github.io
+      repoSiteFolder: dev-sunbird.github.io
+      repoDocs: dev-sunbird/docs
+      qaUrl: qadocs.sunbird.org
+      s3Bucket: sunbird-trial
+      s3Endpoint: .s3-website.ap-south-1.amazonaws.com
+      subdomainPrefixDocs: pr-docs
+      subdomainPrefixSite: pr-site
     steps:
     
       #Checkout
@@ -82,6 +91,15 @@ jobs:
     working_directory: /project/workspace/
     docker:
       - image: lakhanmandloi/docker-ubuntu-ruby-python-npm
+    environment:
+      repoSite: dev-sunbird/dev-sunbird.github.io
+      repoSiteFolder: dev-sunbird.github.io
+      repoDocs: dev-sunbird/docs
+      qaUrl: qadocs.sunbird.org
+      s3Bucket: sunbird-trial
+      s3Endpoint: .s3-website.ap-south-1.amazonaws.com
+      subdomainPrefixDocs: pr-docs
+      subdomainPrefixSite: pr-site
     steps:
       
       #Checkout
