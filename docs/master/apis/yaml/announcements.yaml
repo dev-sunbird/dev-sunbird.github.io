@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: '1.0'
-  title: Announcement API(s)
+  title: Announcement API(s) Fork
   description: >-
     The Announcements API resources on allow users to communicate with other users and post information about various related topics. Announcements are designed to allows the admins to broadcast information out to a specific user or to an entire group of users.
   license:

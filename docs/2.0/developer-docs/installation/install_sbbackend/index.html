@@ -33,8 +33,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<base id="baseURL" href="/" />
-<script>
+	<base id="baseURL" href="/docs/2.0/developer-docs/installation/install_sbbackend/" />
+<!--<script>
 	// Dynamic Base URL
 	function getBase(){
 		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io"];
@@ -42,18 +42,18 @@
 		if (excludedSites.indexOf(window.location.host) > -1){
 			baseURL.href="/";
 		} else {
-			baseURL.href="/releases/release-1.0.2/";
+			baseURL.href="";
 		}
 	}
 	getBase();
-</script>
+</script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-touch-fullscreen" content="yes" />
-<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
 <meta name="msapplication-TileColor" content="#65d3f7">
-<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+<meta name="msapplication-TileImage" content="/img/favicon/mstile-150x150.png">
 
 <title>Sunbird Installing Sunbird Backend</title>
 <meta name="description" content="Sunbird Site Installing Sunbird Backend requires the backend API interface."/>
@@ -62,12 +62,12 @@
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="pragma" content="no-cache" />
-<meta name="last-modified" content="2018-03-15 18:22:46 +0530">
+<meta name="last-modified" content="2018-04-23 23:21:38 +0530">
 <meta http-equiv="Expires" content="600" />
 
 <!--Build Details-->
-<meta name="buildVersion" content="release-1.0.2" />
-<meta name="buildNo" content="30" />
+<meta name="buildVersion" content="Release - release-1.0.6" />
+<meta name="buildNo" content="86" />
 <!--/Build Details-->
 
 <!-- CDN's-->
@@ -75,13 +75,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
 <!-- /CDN's-->
 
-<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
-<link rel="stylesheet" href="css/style.css?15032018"  />
-<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
-<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+<link rel="stylesheet" href="/css/owl/owl.carousel.min.css?23042018"  />
+<link rel="stylesheet" href="/css/style.css?23042018"  />
+<script type="text/javascript" src="/js/bootstrap.min.js?23042018"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js?23042018"></script>
+<script type="text/javascript" src="/js/jquery.tocLight.js?23042018"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
@@ -93,8 +94,8 @@
   <div class="container inner container-height docs 2.0 latest">
     <header class="logo-container">
       <div class="logo">
-        <a href="index.html">
-          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        <a href="/index.html">
+          <img src="/img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
         </a>
       </div>
       <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
@@ -154,7 +155,7 @@
 		
 		
 		
-			<option value="docs/2.0/developer-docs/installation/install_sbbackend/" selected=selected>
+			<option value="/docs/2.0/developer-docs/installation/install_sbbackend/" selected=selected>
 				Version 2.0
 				
 					( Latest )
@@ -167,7 +168,7 @@
 		
 		
 		
-			<option value="docs/1.0/developer-docs/installation/install_sbbackend/" >
+			<option value="/docs/1.0/developer-docs/installation/install_sbbackend/" >
 				Version 1.0
 				
 				</option>
@@ -185,11 +186,12 @@
 		$('#docs-version').on('change', function () {
 			var url = $(this).val(); // get selected value
 				if (url) { // require a URL
-					if (excludedSites.indexOf(window.location.host) > -1){
+					window.location = url; // redirect
+					/*if (excludedSites.indexOf(window.location.host) > -1){
 						window.location = url; // redirect
 					} else {
 						window.location = baseURL.href+url;  // redirect
-					}
+					}*/
 				}
 			return false;
 		});
@@ -209,7 +211,7 @@
 		
 		
 		<div class="section  section-architecture path-developer-docs ">
-			<a href="docs/2.0/architecture/" >
+			<a href="/docs/2.0/architecture/" >
 				<h4 class="sidebar-group-title">Architecture</h4>
 			</a>
 			
@@ -221,7 +223,7 @@
 							
 								
 							
-							<a href="docs/2.0/architecture/overview/" >
+							<a href="/docs/2.0/architecture/overview/" >
 								Overview
 							</a>
 						
@@ -233,7 +235,7 @@
 							
 								
 							
-							<a href="docs/2.0/architecture/design/" >
+							<a href="/docs/2.0/architecture/design/" >
 								Design
 							</a>
 						
@@ -246,7 +248,7 @@
 								
 									
 								
-								<a href="docs/2.0/architecture/views/elementryview/" >
+								<a href="/docs/2.0/architecture/views/elementryview/" >
 									Views
 								</a>
 								<ul class="sidebar-group">
@@ -255,7 +257,7 @@
 										
 											
 										
-										<a  href="docs/2.0/architecture/views/logical/" >
+										<a  href="/docs/2.0/architecture/views/logical/" >
 											Logical View
 										</a>
 									</li>
@@ -264,7 +266,7 @@
 										
 											
 										
-										<a  href="docs/2.0/architecture/views/physical/" >
+										<a  href="/docs/2.0/architecture/views/physical/" >
 											Physical View
 										</a>
 									</li>
@@ -273,7 +275,7 @@
 										
 											
 										
-										<a  href="docs/2.0/architecture/views/conceptual/" >
+										<a  href="/docs/2.0/architecture/views/conceptual/" >
 											Conceptual View
 										</a>
 									</li>
@@ -282,7 +284,7 @@
 										
 											
 										
-										<a  href="docs/2.0/architecture/views/deployment/" >
+										<a  href="/docs/2.0/architecture/views/deployment/" >
 											Deployment View
 										</a>
 									</li>
@@ -298,7 +300,7 @@
 							
 								
 							
-							<a href="docs/2.0/architecture/usecase/" >
+							<a href="/docs/2.0/architecture/usecase/" >
 								Use Cases
 							</a>
 						
@@ -315,7 +317,7 @@
 		
 		
 		<div class="section  section-features-documentation path-developer-docs ">
-			<a href="docs/2.0/features-documentation/" >
+			<a href="/docs/2.0/features-documentation/" >
 				<h4 class="sidebar-group-title">Product Features</h4>
 			</a>
 			
@@ -327,19 +329,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/onboarding/" >
-								Onboarding
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/2.0/features-documentation/login/" >
+							<a href="/docs/2.0/features-documentation/login/" >
 								Login
 							</a>
 						
@@ -351,7 +341,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/register_org/" >
+							<a href="/docs/2.0/features-documentation/register_org/" >
 								Register Organizations
 							</a>
 						
@@ -363,7 +353,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/register_user/" >
+							<a href="/docs/2.0/features-documentation/register_user/" >
 								Register Users
 							</a>
 						
@@ -376,7 +366,7 @@
 								
 									
 								
-								<a href="docs/2.0/features-documentation/userrolepermission/" >
+								<a href="/docs/2.0/features-documentation/userrolepermission/" >
 									User Roles and Permissions
 								</a>
 								<ul class="sidebar-group">
@@ -385,7 +375,16 @@
 										
 											
 										
-										<a  href="docs/2.0/features-documentation/userprofile/" >
+										<a  href="/docs/2.0/features-documentation/user_type/" >
+											Types of Users
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/features-documentation/userprofile/" >
 											User Profile
 										</a>
 									</li>
@@ -394,7 +393,7 @@
 										
 											
 										
-										<a  href="docs/2.0/features-documentation/workspace/" >
+										<a  href="/docs/2.0/features-documentation/workspace/" >
 											Workspace
 										</a>
 									</li>
@@ -410,7 +409,111 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/library/" >
+							<a href="/docs/2.0/features-documentation/admindashboard/" >
+								Administrator Dashboard
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/features-documentation/lessonplan/" >
+								Lesson Plan
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/features-documentation/book_creation/" >
+								Book
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/features-documentation/collection_creation/" >
+								Collection
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/2.0/features-documentation/course_intro/" >
+									Courses
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/features-documentation/course_creation/" >
+											Course Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/features-documentation/course_batches/" >
+											Batch Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/features-documentation/course_consumption/" >
+											Course Consumption
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/features-documentation/announcement/" >
+								Announcement
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/features-documentation/library/" >
 								Library
 							</a>
 						
@@ -422,7 +525,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/contentlifecycle/" >
+							<a href="/docs/2.0/features-documentation/contentlifecycle/" >
 								Content Lifecycle
 							</a>
 						
@@ -434,19 +537,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/contentcreation/" >
-								Content Creation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/2.0/features-documentation/contenteditor/" >
+							<a href="/docs/2.0/features-documentation/contenteditor/" >
 								Content Editor
 							</a>
 						
@@ -459,7 +550,7 @@
 								
 									
 								
-								<a href="docs/2.0/features-documentation/guidelines/" >
+								<a href="/docs/2.0/features-documentation/guidelines/" >
 									Guidelines
 								</a>
 								<ul class="sidebar-group">
@@ -468,7 +559,7 @@
 										
 											
 										
-										<a  href="docs/2.0/features-documentation/intellectualproperty/" >
+										<a  href="/docs/2.0/features-documentation/intellectualproperty/" >
 											Intellectual Property
 										</a>
 									</li>
@@ -484,7 +575,7 @@
 							
 								
 							
-							<a href="docs/2.0/features-documentation/collaborationpartnership/" >
+							<a href="/docs/2.0/features-documentation/collaborationpartnership/" >
 								Collaboration and Partnership
 							</a>
 						
@@ -501,7 +592,7 @@
 		
 		
 		<div class="section active section-developer-docs path-developer-docs ">
-			<a href="docs/2.0/developer-docs/" >
+			<a href="/docs/2.0/developer-docs/" >
 				<h4 class="sidebar-group-title">Developer Documentation</h4>
 			</a>
 			
@@ -513,8 +604,32 @@
 							
 								
 							
-							<a href="docs/2.0/developer-docs/installation/" >
+							<a href="/docs/2.0/developer-docs/getting_started/" >
+								Getting Started with Sunbird
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/developer-docs/installation/" >
 								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/developer-docs/installation/installing_sunbirdon_machine/" >
+								Install Sunbird on your Machine
 							</a>
 						
 					</li>
@@ -526,7 +641,7 @@
 								
 									
 								
-								<a href="docs/2.0/developer-docs/installation/medium_scale_deploy/" >
+								<a href="/docs/2.0/developer-docs/installation/medium_scale_deploy/" >
 									Medium Scale Deployment
 								</a>
 								<ul class="sidebar-group">
@@ -535,7 +650,7 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/provisioning_servers/" >
+										<a  href="/docs/2.0/developer-docs/installation/provisioning_servers/" >
 											Provisioning Servers
 										</a>
 									</li>
@@ -544,7 +659,7 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/setup_db/" >
+										<a  href="/docs/2.0/developer-docs/installation/setup_db/" >
 											Setup Databases
 										</a>
 									</li>
@@ -553,7 +668,7 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/deploy_sb_services/" >
+										<a  href="/docs/2.0/developer-docs/installation/deploy_sb_services/" >
 											Deploying Sunbird Services
 										</a>
 									</li>
@@ -562,8 +677,8 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/keycloak_realm_configuration/" >
-											Configure Keycloak
+										<a  href="/docs/2.0/developer-docs/installation/install_sbbackend/" >
+											Installing Sunbird Backend
 										</a>
 									</li>
 									
@@ -571,7 +686,7 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/cust_sunbird/" >
+										<a  href="/docs/2.0/developer-docs/installation/cust_sunbird/" >
 											Customizing Assets
 										</a>
 									</li>
@@ -580,7 +695,7 @@
 										
 											
 										
-										<a  href="docs/2.0/developer-docs/installation/check_installation/" >
+										<a  href="/docs/2.0/developer-docs/installation/check_installation/" >
 											Check Installation
 										</a>
 									</li>
@@ -593,24 +708,12 @@
 					<li>
 								
 						
-							
-								
-							
-							<a href="docs/2.0/developer-docs/installation/install_mobile_setup/" >
-								Mobile App Installation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
 							<div class="">
 								
 									
 								
-								<a href="docs/2.0/apis/" >
-									API References
+								<a href="/docs/2.0/developer-docs/onboarding/" >
+									Onboarding
 								</a>
 								<ul class="sidebar-group">
 									
@@ -618,8 +721,8 @@
 										
 											
 										
-										<a  href="docs/2.0/apis/specs/?api=bulkserviceapi" target="_blank">
-											Bulk Upload Service APIs
+										<a  href="/docs/2.0/developer-docs/singlesignon/overview_sso/" >
+											Onboarding via Single Sign On
 										</a>
 									</li>
 									
@@ -627,62 +730,8 @@
 										
 											
 										
-										<a  href="docs/2.0/apis/specs/?api=contentapi" target="_blank">
-											Content APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=coursebatchmanapi" target="_blank">
-											Course Batch Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=datasyncapi" target="_blank">
-											Data Sync APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=metricsapi" target="_blank">
-											Metrics APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=notificationapi" target="_blank">
-											Notification APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=orgapi" target="_blank">
-											Organisation Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/2.0/apis/specs/?api=userapi" target="_blank">
-											User APIs
+										<a  href="/docs/2.0/developer-docs/configuring_announcement/" >
+											Configuring for Announcements
 										</a>
 									</li>
 									
@@ -697,7 +746,163 @@
 							
 								
 							
-							<a href="docs/2.0/developer-docs/troubleshooting/" >
+							<a href="/docs/2.0/developer-docs/upgrading/" >
+								Upgrading
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/2.0/apis/" >
+									API Reference Documentation
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/apis/#feature" >
+											Feature
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/apis/#admin-apis" >
+											Administration
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/apis/#setup-apis" >
+											Setup
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/apis/#data-apis" >
+											Data
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/2.0/developer-docs/telemetry/overview" >
+									Telemetry
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/developer-docs/telemetry/specification/" >
+											Telemetry Specifications
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/developer-docs/telemetry/sending_telemetry/" >
+											Sending Telemetry
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/2.0/developer-docs/library_reference/" >
+									Library References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/developer-docs/telemetry/jslibrary/" >
+											Standalone JS Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/developer-docs/telemetry/htmlinterfacelibrary/" >
+											HTML Interface Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/2.0/developer-docs/telemetry/authtokengenerator_jslibrary/" >
+											AuthToken Generator JS Library
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/2.0/developer-docs/troubleshooting/" >
 								Troubleshooting
 							</a>
 						
@@ -713,8 +918,49 @@
 			
 		
 		
+		<div class="section  section- path-developer-docs ">
+			<a href="/docs/contributions/" >
+				<h4 class="sidebar-group-title">Contribute to Sunbird</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/filing_a_bug" >
+								Guidelines for Filing a Bug
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/contribution_guidelines" >
+								Contributing to Sunbird Documentation
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
 		<div class="section  section-faqs path-developer-docs ">
-			<a href="docs/2.0/faqs/" >
+			<a href="/docs/2.0/faqs/" >
 				<h4 class="sidebar-group-title">Frequently asked questions</h4>
 			</a>
 			
@@ -726,7 +972,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/audience/" >
+							<a href="/docs/2.0/faqs/audience/" >
 								Audience
 							</a>
 						
@@ -738,7 +984,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/content_format/" >
+							<a href="/docs/2.0/faqs/content_format/" >
 								Content Format
 							</a>
 						
@@ -750,7 +996,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/content_repo/" >
+							<a href="/docs/2.0/faqs/content_repo/" >
 								Content Repositories
 							</a>
 						
@@ -762,7 +1008,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/contentreviews/" >
+							<a href="/docs/2.0/faqs/contentreviews/" >
 								Content Review
 							</a>
 						
@@ -774,7 +1020,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/content_types/" >
+							<a href="/docs/2.0/faqs/content_types/" >
 								Content Types
 							</a>
 						
@@ -786,7 +1032,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/content_upload/" >
+							<a href="/docs/2.0/faqs/content_upload/" >
 								Content Upload
 							</a>
 						
@@ -798,7 +1044,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/feature/" >
+							<a href="/docs/2.0/faqs/feature/" >
 								Features
 							</a>
 						
@@ -810,7 +1056,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/fixerrors/" >
+							<a href="/docs/2.0/faqs/fixerrors/" >
 								Fix Errors
 							</a>
 						
@@ -822,7 +1068,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/helpsupport/" >
+							<a href="/docs/2.0/faqs/helpsupport/" >
 								Help Support
 							</a>
 						
@@ -834,7 +1080,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/intellectual_propertylicensesstandards/" >
+							<a href="/docs/2.0/faqs/intellectual_propertylicensesstandards/" >
 								Intellectual Property Licenses Standards
 							</a>
 						
@@ -846,7 +1092,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/registrationenrolment/" >
+							<a href="/docs/2.0/faqs/registrationenrolment/" >
 								Registration and Enrollment
 							</a>
 						
@@ -858,7 +1104,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/signin/" >
+							<a href="/docs/2.0/faqs/signin/" >
 								Sign In
 							</a>
 						
@@ -870,7 +1116,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/taxonomymetadataframework/" >
+							<a href="/docs/2.0/faqs/taxonomymetadataframework/" >
 								Taxonomy Meta Data Framework
 							</a>
 						
@@ -882,7 +1128,7 @@
 							
 								
 							
-							<a href="docs/2.0/faqs/user_rightspermissions/" >
+							<a href="/docs/2.0/faqs/user_rightspermissions/" >
 								Users Rights and Permission
 							</a>
 						
@@ -899,7 +1145,7 @@
 		
 		
 		<div class="section  section-glossary path-developer-docs ">
-			<a href="docs/2.0/glossary/" >
+			<a href="/docs/2.0/glossary/" >
 				<h4 class="sidebar-group-title">Glossary</h4>
 			</a>
 			
@@ -919,10 +1165,10 @@
 	
 	<!-- Contribution Sidebar-->
 </div>
+<script>
+	$("a[href$='/docs/2.0/developer-docs/installation/install_sbbackend/']").addClass("sidebar-link-selected");
+</script>
 
-			<script>
-				$("a[href$='docs/2.0/developer-docs/installation/install_sbbackend/']").addClass("sidebar-link-selected");
-			</script>
 		</div>
     </nav>
     <div class="content">
@@ -933,11 +1179,11 @@
       <div id="main-content" class="inner__content">
 			<p class="edit-para text-right">
 				<span>
-			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+			<a target="_blank" class="contribute" href="/docs/contributions/contribution_guidelines">
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/2.0/developer-docs/installation/install_sbbackend.md">
+			 <a target="_blank"  title="Edit this page" class="" href="https://github.com/dev-sunbird/docs/edit/2.0/developer-docs/installation/install_sbbackend.md">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
@@ -967,7 +1213,7 @@
                   <a href="#setup"><span class="tocnumber">2.1 .</span> <span class="toctext">Setup</span></a>
                 </li>
                 <li class="toc_level-2 toc_section-4">
-                  <a href="#configuration-setup-for-application"><span class="tocnumber">2.2 .</span> <span class="toctext">Configuration setup for Application</span></a>
+                  <a href="#configuring-the-application"><span class="tocnumber">2.2 .</span> <span class="toctext">Configuring the Application</span></a>
                 </li>
                 <li class="toc_level-2 toc_section-5">
                   <a href="#setting-environment-variables"><span class="tocnumber">2.3 .</span> <span class="toctext">Setting Environment Variables</span></a>
@@ -976,11 +1222,19 @@
             </li>
             <li class="toc_level-1 toc_section-6">
               <a href="#configuring-and-running-back-end-services-stack"><span class="tocnumber">3 .</span> <span class="toctext">Configuring and running Back-End Services Stack</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#clone-the-repositories"><span class="tocnumber">3.1 .</span> <span class="toctext">Clone the Repositories</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-8">
+                  <a href="#making-the-build"><span class="tocnumber">3.2 .</span> <span class="toctext">Making the build</span></a>
+                </li>
+              </ul>
             </li>
-            <li class="toc_level-1 toc_section-7">
+            <li class="toc_level-1 toc_section-9">
               <a href="#configuring-the-akka-actors"><span class="tocnumber">4 .</span> <span class="toctext">Configuring the (Akka) Actors</span></a>
             </li>
-            <li class="toc_level-1 toc_section-8">
+            <li class="toc_level-1 toc_section-10">
               <a href="#testing-the-services"><span class="tocnumber">5 .</span> <span class="toctext">Testing the services</span></a>
             </li>
           </ul>
@@ -1037,9 +1291,8 @@
     <p>Copy the following files to a temp folder in a Cassandra installed machine</p>
 
     <ul>
-      <li><a href="https://github.com/project-sunbird/sunbird-lms-mw/blob/master/actors/src/main/resources/pageMgmt.csv" target="_blank">pageMgmt.csv</a></li>
-      <li><a href="https://github.com/project-sunbird/sunbird-lms-mw/blob/master/actors/src/main/resources/pageSection.csv">pageSection.csv</a> {:target=”_blank”}</li>
-      <li><a href="https://github.com/project-sunbird/sunbird-lms-mw/blob/master/actors/src/main/resources/pageSection.csv" target="_blank">pageSection.csv</a></li>
+      <li><a href="https://github.com/project-sunbird/sunbird-lms-mw/blob/master/actors/src/main/resources/pageMgmt.csv" target="_blank">PageMgmt.csv</a></li>
+      <li><a href="https://github.com/project-sunbird/sunbird-lms-mw/blob/master/actors/src/main/resources/pageSection.csv" target="_blank">PageSection.csv</a></li>
     </ul>
   </li>
 </ol>
@@ -1057,19 +1310,18 @@ organisationid, portalmap, updatedby, updateddate) FROM '/tmp/cql/pageMgmt.csv'"
  display, imgurl, name, searchquery, sectiondatatype, status, updatedby, updateddate) 
  FROM '/tmp/cql/pageSection.csv'"
 </pre>
-<p>Next section details about setting up the Elasticsearch on your local machine.</p>
+<p>Next section details about setting up the Elastic search on your local machine.</p>
 
 <p>
-  <strong>Setup Elasticsearch</strong>
+  <strong>Setup Elastic search</strong>
 </p>
 
 <ol>
   <li>
-    <p>For step by step installation guide of Elasticsearch refer to the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html" target="_blank">website</a></p>
+    <p>For step by step installation guide of Elastic search refer to the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html" target="_blank">website</a></p>
   </li>
   <li>
-    <p>The official website guides you through the installation, and if you have done a successful install of Elasticsearch, you need to<br />
-start the server and open Elasticsearch CLI (Command Line Interface)</p>
+    <p>The official website guides you through the installation, and if you have done a successful install of Elastic search, you need to start the server and open Elastic search CLI (Command Line Interface)</p>
   </li>
   <li>
     <p>Run the following curl command</p>
@@ -1077,12 +1329,12 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
 </ol>
 
 <pre>
-              curl -X PUT \
-              http://localhost:9200/searchindex/org/ORG_001 \
-              -H 'cache-control: no-cache' \
-              -H 'content-type: application/json' \
-              -H 'postman-token: caa7eaa7-2a08-d1f3-1eb2-bf7c73bef663' \
-              -d '{}'
+curl -X PUT \
+http://localhost:9200/searchindex/org/ORG_001 \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
+-H 'postman-token: caa7eaa7-2a08-d1f3-1eb2-bf7c73bef663' \
+-d '{}'
 </pre>
 
 <p>Next section details about setting up the Keycloak on your local machine.</p>
@@ -1112,9 +1364,9 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
   </li>
 </ol>
 
-<h3 id="configuration-setup-for-application">Configuration setup for Application</h3>
+<h3 id="configuring-the-application">Configuring the Application</h3>
 
-<p>To run Sunbird services, you need to set different environment variables listed as follows:</p>
+<p>To run Sunbird services, you need to set the following environment variables:</p>
 
 <table>
   <thead>
@@ -1142,15 +1394,15 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_es_host</td>
-      <td>host running the Elasticsearch server</td>
+      <td>host running the Elastic search server</td>
     </tr>
     <tr>
       <td>sunbird_es_port</td>
-      <td>port on which Elasticsearch server is running</td>
+      <td>port on which Elastic search server is running</td>
     </tr>
     <tr>
       <td>sunbird_es_cluster (optional)</td>
-      <td>name of the Elasticsearch cluster</td>
+      <td>name of the Elastic search cluster</td>
     </tr>
     <tr>
       <td>sunbird_learner_actor_host</td>
@@ -1162,7 +1414,7 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_sso_url</td>
-      <td>url for keycloak server (Example : <strong>http://localhost:8080/auth</strong> )</td>
+      <td>URL for keycloak server (Example : <strong>http://localhost:8080/auth</strong> )</td>
     </tr>
     <tr>
       <td>sunbird_sso_realm</td>
@@ -1178,7 +1430,7 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_sso_client_id</td>
-      <td>key cloak client id  (use default as admin-cli or you can create new client in key cloak)</td>
+      <td>keycloak client id  (use default as admin-cli or you can create new client in keycloak)</td>
     </tr>
     <tr>
       <td>sunbird_sso_client_secret</td>
@@ -1186,7 +1438,7 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>ekstep_content_search_base_url</td>
-      <td>provide base url for EkStep content search</td>
+      <td>provide base URL for EkStep content search</td>
     </tr>
     <tr>
       <td>ekstep_authorization</td>
@@ -1214,11 +1466,11 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_installation</td>
-      <td> </td>
+      <td>sunbird</td>
     </tr>
     <tr>
       <td>ekstep_api_base_url</td>
-      <td> </td>
+      <td>https://dev.ekstep.in/api</td>
     </tr>
     <tr>
       <td>sunbird_mail_server_host</td>
@@ -1238,7 +1490,7 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_mail_server_from_email</td>
-      <td> </td>
+      <td>support@open-sunbird.org</td>
     </tr>
     <tr>
       <td>sunbird_account_name</td>
@@ -1246,11 +1498,11 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_account_key</td>
-      <td>azure blob storage account key</td>
+      <td>Azure blob storage account key</td>
     </tr>
     <tr>
       <td>sunbird_quartz_mode</td>
-      <td>put this value {“embedded” to run quartz without any data base, “any other value” to run with postgres db }</td>
+      <td>put this value {“embedded” to run quartz without any database, “any other value” to run with postgres db }</td>
     </tr>
     <tr>
       <td>sunbird_encryption_key</td>
@@ -1266,15 +1518,15 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
     </tr>
     <tr>
       <td>sunbird_env_logo_url</td>
-      <td>logo url for sending email.(http://www.paramountias.com/media/images/current-affairs/diksha-portal.jpg)</td>
+      <td>logo URL for sending email.(http://www.paramountias.com/media/images/current-affairs/sunbird-portal.jpg)</td>
     </tr>
     <tr>
       <td>sunird_web_url</td>
-      <td>web page url</td>
+      <td>web page URL</td>
     </tr>
     <tr>
       <td>sunbird_app_url</td>
-      <td>Play store url to download the app</td>
+      <td>Play store URL to download the app</td>
     </tr>
     <tr>
       <td>sunbird_msg_91_auth</td>
@@ -1287,34 +1539,36 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
   </tbody>
 </table>
 
-<p>The table mentions all the environment variables with description. You need to add/edit the environment variables in appropriate locations.Next section details about the environmental variables that are mandatory to run the backend services.</p>
+<p>The table mentions all the environment variables with description. Add or edit the environment variables in their appropriate locations.</p>
+
+<p><strong>Note:</strong> The following environment variables are mandatory to run the backend services.</p>
 
 <h3 id="setting-environment-variables">Setting Environment Variables</h3>
 
-<p>To run sunbird backend services, at least you need to set the following environment variables. Set the environment variables at appropriate locations.</p>
+<p>To run sunbird backend services, at least you need to set the following environment variables. Ensure that you set the environment variables at appropriate locations.</p>
 
 <pre>
-          1. sunbird_cassandra_host
-          2. sunbird_cassandra_port
-          3. sunbird_cassandra_username 
-          4. sunbird_cassandra_password 
-          5. sunbird_es_host
-          6. sunbird_es_port
-          7. sunbird_learner_actor_host
-          8. sunbird_learner_actor_port
-          9. sunbird_sso_url
-          10. sunbird_sso_realm
-          11. sunbird_sso_username
-          12. sunbird_sso_password
-          13. sunbird_sso_client_id
-          14. ekstep_content_search_base_url
-          15. ekstep_authorization
-          16. sunbird_installation : name of in which environment you running this application or instance name
-          17. sunbird_quartz_mode : set value as "embedded" as you are not running scheduler in distributed environment.
-          18. sunbird_sso_publickey
+1. sunbird_cassandra_host
+2. sunbird_cassandra_port
+3. sunbird_cassandra_username 
+4. sunbird_cassandra_password 
+5. sunbird_es_host
+6. sunbird_es_port
+7. sunbird_learner_actor_host
+8. sunbird_learner_actor_port
+9. sunbird_sso_url
+10. sunbird_sso_realm
+11. sunbird_sso_username
+12. sunbird_sso_password
+13. sunbird_sso_client_id
+14. ekstep_content_search_base_url
+15. ekstep_authorization
+16. sunbird_installation : name of environment in which you are running the application or instance name
+17. sunbird_quartz_mode : set value as "embedded" as you are not running scheduler in distributed environment.
+18. sunbird_sso_publickey
 </pre>
 
-<p>Here, you can find the remaining <a href="https://github.com/project-sunbird/sunbird-utils/blob/master/common-util/src/main/resources/externalresource.properties" target="_blank">Environment Variable Values</a></p>
+<p>For remaining environment variable values[refer] (https://github.com/project-sunbird/sunbird-utils/blob/master/common-util/src/main/resources/externalresource.properties){:target=”_blank”}</p>
 
 <h2 id="configuring-and-running-back-end-services-stack">Configuring and running Back-End Services Stack</h2>
 
@@ -1325,13 +1579,15 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
   <li>Making the Build</li>
 </ul>
 
-<p>Clone following repositories:</p>
+<h3 id="clone-the-repositories">Clone the Repositories</h3>
 
 <ul>
   <li><a href="https://github.com/project-sunbird/sunbird-utils" target="_blank">sunbird-utils</a></li>
   <li><a href="https://github.com/project-sunbird/sunbird-lms-service" target="_blank">sunbird-lms-service</a></li>
   <li><a href="https://github.com/project-sunbird/sunbird-lms-mw" target="_blank">sunbird-lms-mw</a></li>
 </ul>
+
+<h3 id="making-the-build">Making the build</h3>
 
 <p>Make the builds in following order:</p>
 
@@ -1350,15 +1606,16 @@ start the server and open Elasticsearch CLI (Command Line Interface)</p>
   <li>Background ActorSystem</li>
 </ol>
 
-<p>And by default, both run on two different machines.
-But to run these actor systems on single machine, you need to modify the [resource.properties file]
-For details <a href="https://github.com/project-sunbird/sunbird-utils/blob/master/common-util/src/main/resources/externalresource.properties" target="_blank">refer</a> to repository.</p>
+<p>By default, both run on different machines. In order to run these actor systems on a single machine, you need to modify the [resource.properties file]
+For more details <a href="https://github.com/project-sunbird/sunbird-utils/blob/master/common-util/src/main/resources/externalresource.properties" target="_blank">refer</a> to this repository.</p>
 
-<p>In order to run both the actor systems on single machine follow these steps:</p>
+<p>To run both the actor systems on a single machine follow these steps:</p>
 
 <ol>
   <li>Open <strong>externalresource.properties</strong> file</li>
-  <li>Modify the following properties:
+  <li>
+    <p>Modify the following properties:</p>
+
     <ul>
       <li>background_actor_provider</li>
       <li>api_actor_provider</li>
@@ -1368,16 +1625,16 @@ For details <a href="https://github.com/project-sunbird/sunbird-utils/blob/maste
   <li>Run <code>mvn clean install</code> command to make build of each module</li>
 </ol>
 
-<p>And to run Application sunbird-lms-service execute the following command</p>
+<p>To run the <strong>sunbird-lms-service</strong> execute the following command</p>
 
 <pre>
-  <code>  run mvn play2:run 
+  <code>  ```mvn play2:run```
 </code>
 </pre>
 
 <h2 id="testing-the-services">Testing the services</h2>
 
-<p>Run any API, e.g. create a user API and perform different actions on user using this <a href="https://www.getpostman.com/collections/d314ef7df8fb02c9fa0f" target="_blank">Postman collection</a></p>
+<p>Test any API using postman, e.g. download <strong>user API</strong> and perform different actions on user using this <a href="https://www.getpostman.com/collections/d314ef7df8fb02c9fa0f" target="_blank">Postman collection</a></p>
 
 
           
@@ -1389,7 +1646,7 @@ For details <a href="https://github.com/project-sunbird/sunbird-utils/blob/maste
 			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
 		  </p>
-		  <a href="docs/2.0/developer-docs/installation/install_sbbackend/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+		  <a href="/docs/2.0/developer-docs/installation/install_sbbackend/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
           
       </div>
     </div>
@@ -1404,16 +1661,16 @@ For details <a href="https://github.com/project-sunbird/sunbird-utils/blob/maste
 			
 			<div class="col-md-2 col-sm-6 ">
 				<ul>
-					<li><a href="about/">About Sunbird</a></li>
-					<li><a href="contact/">Contact Us</a></li>
-					<li><a href="privacy-policy/">Privacy Policy</a></li>
+					<li><a href="/about/">About Sunbird</a></li>
+					<li><a href="/contact/">Contact Us</a></li>
+					<li><a href="/privacy-policy/">Privacy Policy</a></li>
 				</ul>
 			</div>
 			
 			<div class="col-md-2 col-sm-6 sideline">
 				<ul>
-					<li><a href="docs/">Documentation</a></li>
-					<li><a href="features/">Features</a></li>
+					<li><a href="/docs/">Documentation</a></li>
+					<li><a href="/features/">Features</a></li>
 				</ul>
 			</div>
 
@@ -1443,7 +1700,7 @@ For details <a href="https://github.com/project-sunbird/sunbird-utils/blob/maste
 	});
 	$('#toc a').each(function(){
 		var url = this.href.replace(baseURL.href, "");
-		this.href = 'docs/2.0/developer-docs/installation/install_sbbackend/' + url;
+		this.href = '/docs/2.0/developer-docs/installation/install_sbbackend/' + url;
     })
   </script>
   </body>

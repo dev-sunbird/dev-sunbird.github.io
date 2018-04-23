@@ -44,7 +44,7 @@ do
     echo -e "\n\033[1;35mFetching Docs Version -" $branch " inside " $branch " folder ... \033[39m\n"
     
     # git clone branch inside branch folder
-    git clone -q --depth 1 --branch $branch --single-branch git@github.com:dev-sunbird/docs.git  $branch
+    git clone -q --depth 1 --branch $branch --single-branch git@github.com:$gitRepoDocs.git  $branch
     if [ $? -eq 0 ]; then
 		echo -e "\n\033[1;32mSuccessful - Fetching version " $branch " was Successful !!\033[39m"
 	else

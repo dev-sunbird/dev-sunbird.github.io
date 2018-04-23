@@ -27,8 +27,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<base id="baseURL" href="/" />
-<script>
+	<base id="baseURL" href="/docs/master/developer-docs/channel_reg_with_ekstep/" />
+<!--<script>
 	// Dynamic Base URL
 	function getBase(){
 		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io"];
@@ -36,18 +36,18 @@
 		if (excludedSites.indexOf(window.location.host) > -1){
 			baseURL.href="/";
 		} else {
-			baseURL.href="/releases/release-1.0.2/";
+			baseURL.href="";
 		}
 	}
 	getBase();
-</script>
+</script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-touch-fullscreen" content="yes" />
-<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
 <meta name="msapplication-TileColor" content="#65d3f7">
-<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+<meta name="msapplication-TileImage" content="/img/favicon/mstile-150x150.png">
 
 <title>Sunbird Registering Channel</title>
 <meta name="description" content="Sunbird Site Registering Channel for root organization creation"/>
@@ -56,12 +56,12 @@
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="pragma" content="no-cache" />
-<meta name="last-modified" content="2018-03-15 18:22:46 +0530">
+<meta name="last-modified" content="2018-04-23 23:21:38 +0530">
 <meta http-equiv="Expires" content="600" />
 
 <!--Build Details-->
-<meta name="buildVersion" content="release-1.0.2" />
-<meta name="buildNo" content="30" />
+<meta name="buildVersion" content="Release - release-1.0.6" />
+<meta name="buildNo" content="86" />
 <!--/Build Details-->
 
 <!-- CDN's-->
@@ -69,13 +69,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
 <!-- /CDN's-->
 
-<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
-<link rel="stylesheet" href="css/style.css?15032018"  />
-<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
-<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+<link rel="stylesheet" href="/css/owl/owl.carousel.min.css?23042018"  />
+<link rel="stylesheet" href="/css/style.css?23042018"  />
+<script type="text/javascript" src="/js/bootstrap.min.js?23042018"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js?23042018"></script>
+<script type="text/javascript" src="/js/jquery.tocLight.js?23042018"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
@@ -87,8 +88,8 @@
   <div class="container inner container-height docs master ">
     <header class="logo-container">
       <div class="logo">
-        <a href="index.html">
-          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        <a href="/index.html">
+          <img src="/img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
         </a>
       </div>
       <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
@@ -142,7 +143,7 @@
 		
 		
 		
-			<option value="docs/2.0/developer-docs/channel_reg_with_ekstep/" >
+			<option value="/docs/2.0/developer-docs/channel_reg_with_ekstep/" >
 				Version 2.0
 				
 					( Latest )
@@ -155,7 +156,7 @@
 		
 		
 		
-			<option value="docs/1.0/developer-docs/channel_reg_with_ekstep/" >
+			<option value="/docs/1.0/developer-docs/channel_reg_with_ekstep/" >
 				Version 1.0
 				
 				</option>
@@ -173,11 +174,12 @@
 		$('#docs-version').on('change', function () {
 			var url = $(this).val(); // get selected value
 				if (url) { // require a URL
-					if (excludedSites.indexOf(window.location.host) > -1){
+					window.location = url; // redirect
+					/*if (excludedSites.indexOf(window.location.host) > -1){
 						window.location = url; // redirect
 					} else {
 						window.location = baseURL.href+url;  // redirect
-					}
+					}*/
 				}
 			return false;
 		});
@@ -206,7 +208,7 @@
 		
 		
 		<div class="section  section-architecture path-developer-docs ">
-			<a href="docs/master/architecture/" >
+			<a href="/docs/master/architecture/" >
 				<h4 class="sidebar-group-title">Architecture</h4>
 			</a>
 			
@@ -218,7 +220,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/overview/" >
+							<a href="/docs/master/architecture/overview/" >
 								Overview
 							</a>
 						
@@ -230,7 +232,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/design/" >
+							<a href="/docs/master/architecture/design/" >
 								Design
 							</a>
 						
@@ -243,7 +245,7 @@
 								
 									
 								
-								<a href="docs/master/architecture/views/elementryview/" >
+								<a href="/docs/master/architecture/views/elementryview/" >
 									Views
 								</a>
 								<ul class="sidebar-group">
@@ -252,7 +254,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/logical/" >
+										<a  href="/docs/master/architecture/views/logical/" >
 											Logical View
 										</a>
 									</li>
@@ -261,7 +263,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/physical/" >
+										<a  href="/docs/master/architecture/views/physical/" >
 											Physical View
 										</a>
 									</li>
@@ -270,7 +272,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/conceptual/" >
+										<a  href="/docs/master/architecture/views/conceptual/" >
 											Conceptual View
 										</a>
 									</li>
@@ -279,7 +281,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/deployment/" >
+										<a  href="/docs/master/architecture/views/deployment/" >
 											Deployment View
 										</a>
 									</li>
@@ -295,7 +297,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/usecase/" >
+							<a href="/docs/master/architecture/usecase/" >
 								Use Cases
 							</a>
 						
@@ -312,7 +314,7 @@
 		
 		
 		<div class="section  section-features-documentation path-developer-docs ">
-			<a href="docs/master/features-documentation/" >
+			<a href="/docs/master/features-documentation/" >
 				<h4 class="sidebar-group-title">Product Features</h4>
 			</a>
 			
@@ -324,19 +326,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/onboarding/" >
-								Onboarding
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/master/features-documentation/login/" >
+							<a href="/docs/master/features-documentation/login/" >
 								Login
 							</a>
 						
@@ -348,7 +338,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/register_org/" >
+							<a href="/docs/master/features-documentation/register_org/" >
 								Register Organizations
 							</a>
 						
@@ -360,7 +350,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/register_user/" >
+							<a href="/docs/master/features-documentation/register_user/" >
 								Register Users
 							</a>
 						
@@ -373,7 +363,7 @@
 								
 									
 								
-								<a href="docs/master/features-documentation/userrolepermission/" >
+								<a href="/docs/master/features-documentation/userrolepermission/" >
 									User Roles and Permissions
 								</a>
 								<ul class="sidebar-group">
@@ -382,7 +372,16 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/userprofile/" >
+										<a  href="/docs/master/features-documentation/user_type/" >
+											Types of Users
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/userprofile/" >
 											User Profile
 										</a>
 									</li>
@@ -391,7 +390,7 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/workspace/" >
+										<a  href="/docs/master/features-documentation/workspace/" >
 											Workspace
 										</a>
 									</li>
@@ -407,7 +406,111 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/library/" >
+							<a href="/docs/master/features-documentation/admindashboard/" >
+								Administrator Dashboard
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/lessonplan/" >
+								Lesson Plan
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/book_creation/" >
+								Book
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/collection_creation/" >
+								Collection
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/features-documentation/course_intro/" >
+									Courses
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_creation/" >
+											Course Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_batches/" >
+											Batch Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_consumption/" >
+											Course Consumption
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/announcement/" >
+								Announcement
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/library/" >
 								Library
 							</a>
 						
@@ -419,7 +522,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/contentlifecycle/" >
+							<a href="/docs/master/features-documentation/contentlifecycle/" >
 								Content Lifecycle
 							</a>
 						
@@ -431,19 +534,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/contentcreation/" >
-								Content Creation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/master/features-documentation/contenteditor/" >
+							<a href="/docs/master/features-documentation/contenteditor/" >
 								Content Editor
 							</a>
 						
@@ -456,7 +547,7 @@
 								
 									
 								
-								<a href="docs/master/features-documentation/guidelines/" >
+								<a href="/docs/master/features-documentation/guidelines/" >
 									Guidelines
 								</a>
 								<ul class="sidebar-group">
@@ -465,7 +556,7 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/intellectualproperty/" >
+										<a  href="/docs/master/features-documentation/intellectualproperty/" >
 											Intellectual Property
 										</a>
 									</li>
@@ -481,7 +572,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/collaborationpartnership/" >
+							<a href="/docs/master/features-documentation/collaborationpartnership/" >
 								Collaboration and Partnership
 							</a>
 						
@@ -498,7 +589,7 @@
 		
 		
 		<div class="section active section-developer-docs path-developer-docs ">
-			<a href="docs/master/developer-docs/" >
+			<a href="/docs/master/developer-docs/" >
 				<h4 class="sidebar-group-title">Developer Documentation</h4>
 			</a>
 			
@@ -510,8 +601,32 @@
 							
 								
 							
-							<a href="docs/master/developer-docs/installation/" >
+							<a href="/docs/master/developer-docs/getting_started/" >
+								Getting Started with Sunbird
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/" >
 								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/installing_sunbirdon_machine/" >
+								Install Sunbird on your Machine
 							</a>
 						
 					</li>
@@ -523,7 +638,7 @@
 								
 									
 								
-								<a href="docs/master/developer-docs/installation/medium_scale_deploy/" >
+								<a href="/docs/master/developer-docs/installation/medium_scale_deploy/" >
 									Medium Scale Deployment
 								</a>
 								<ul class="sidebar-group">
@@ -532,7 +647,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/provisioning_servers/" >
+										<a  href="/docs/master/developer-docs/installation/provisioning_servers/" >
 											Provisioning Servers
 										</a>
 									</li>
@@ -541,7 +656,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/setup_db/" >
+										<a  href="/docs/master/developer-docs/installation/setup_db/" >
 											Setup Databases
 										</a>
 									</li>
@@ -550,7 +665,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/deploy_sb_services/" >
+										<a  href="/docs/master/developer-docs/installation/deploy_sb_services/" >
 											Deploying Sunbird Services
 										</a>
 									</li>
@@ -559,8 +674,8 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/keycloak_realm_configuration/" >
-											Configure Keycloak
+										<a  href="/docs/master/developer-docs/installation/install_sbbackend/" >
+											Installing Sunbird Backend
 										</a>
 									</li>
 									
@@ -568,7 +683,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/cust_sunbird/" >
+										<a  href="/docs/master/developer-docs/installation/cust_sunbird/" >
 											Customizing Assets
 										</a>
 									</li>
@@ -577,7 +692,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/check_installation/" >
+										<a  href="/docs/master/developer-docs/installation/check_installation/" >
 											Check Installation
 										</a>
 									</li>
@@ -590,24 +705,12 @@
 					<li>
 								
 						
-							
-								
-							
-							<a href="docs/master/developer-docs/installation/install_mobile_setup/" >
-								Mobile App Installation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
 							<div class="">
 								
 									
 								
-								<a href="docs/master/apis/" >
-									API References
+								<a href="/docs/master/developer-docs/onboarding/" >
+									Onboarding
 								</a>
 								<ul class="sidebar-group">
 									
@@ -615,8 +718,8 @@
 										
 											
 										
-										<a  href="docs/master/apis/specs/?api=bulkserviceapi" target="_blank">
-											Bulk Upload Service APIs
+										<a  href="/docs/master/developer-docs/singlesignon/overview_sso/" >
+											Onboarding via Single Sign On
 										</a>
 									</li>
 									
@@ -624,62 +727,8 @@
 										
 											
 										
-										<a  href="docs/master/apis/specs/?api=contentapi" target="_blank">
-											Content APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=coursebatchmanapi" target="_blank">
-											Course Batch Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=datasyncapi" target="_blank">
-											Data Sync APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=metricsapi" target="_blank">
-											Metrics APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=notificationapi" target="_blank">
-											Notification APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=orgapi" target="_blank">
-											Organisation Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=userapi" target="_blank">
-											User APIs
+										<a  href="/docs/master/developer-docs/configuring_announcement/" >
+											Configuring for Announcements
 										</a>
 									</li>
 									
@@ -694,7 +743,163 @@
 							
 								
 							
-							<a href="docs/master/developer-docs/troubleshooting/" >
+							<a href="/docs/master/developer-docs/upgrading/" >
+								Upgrading
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/apis/" >
+									API Reference Documentation
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#feature" >
+											Feature
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#admin-apis" >
+											Administration
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#setup-apis" >
+											Setup
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#data-apis" >
+											Data
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/developer-docs/telemetry/overview" >
+									Telemetry
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/specification/" >
+											Telemetry Specifications
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/sending_telemetry/" >
+											Sending Telemetry
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/developer-docs/library_reference/" >
+									Library References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/jslibrary/" >
+											Standalone JS Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/htmlinterfacelibrary/" >
+											HTML Interface Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/authtokengenerator_jslibrary/" >
+											AuthToken Generator JS Library
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/troubleshooting/" >
 								Troubleshooting
 							</a>
 						
@@ -710,8 +915,49 @@
 			
 		
 		
+		<div class="section  section- path-developer-docs ">
+			<a href="/docs/contributions/" >
+				<h4 class="sidebar-group-title">Contribute to Sunbird</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/filing_a_bug" >
+								Guidelines for Filing a Bug
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/contribution_guidelines" >
+								Contributing to Sunbird Documentation
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
 		<div class="section  section-faqs path-developer-docs ">
-			<a href="docs/master/faqs/" >
+			<a href="/docs/master/faqs/" >
 				<h4 class="sidebar-group-title">Frequently asked questions</h4>
 			</a>
 			
@@ -723,7 +969,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/audience/" >
+							<a href="/docs/master/faqs/audience/" >
 								Audience
 							</a>
 						
@@ -735,7 +981,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_format/" >
+							<a href="/docs/master/faqs/content_format/" >
 								Content Format
 							</a>
 						
@@ -747,7 +993,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_repo/" >
+							<a href="/docs/master/faqs/content_repo/" >
 								Content Repositories
 							</a>
 						
@@ -759,7 +1005,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/contentreviews/" >
+							<a href="/docs/master/faqs/contentreviews/" >
 								Content Review
 							</a>
 						
@@ -771,7 +1017,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_types/" >
+							<a href="/docs/master/faqs/content_types/" >
 								Content Types
 							</a>
 						
@@ -783,7 +1029,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_upload/" >
+							<a href="/docs/master/faqs/content_upload/" >
 								Content Upload
 							</a>
 						
@@ -795,7 +1041,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/feature/" >
+							<a href="/docs/master/faqs/feature/" >
 								Features
 							</a>
 						
@@ -807,7 +1053,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/fixerrors/" >
+							<a href="/docs/master/faqs/fixerrors/" >
 								Fix Errors
 							</a>
 						
@@ -819,7 +1065,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/helpsupport/" >
+							<a href="/docs/master/faqs/helpsupport/" >
 								Help Support
 							</a>
 						
@@ -831,7 +1077,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/intellectual_propertylicensesstandards/" >
+							<a href="/docs/master/faqs/intellectual_propertylicensesstandards/" >
 								Intellectual Property Licenses Standards
 							</a>
 						
@@ -843,7 +1089,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/registrationenrolment/" >
+							<a href="/docs/master/faqs/registrationenrolment/" >
 								Registration and Enrollment
 							</a>
 						
@@ -855,7 +1101,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/signin/" >
+							<a href="/docs/master/faqs/signin/" >
 								Sign In
 							</a>
 						
@@ -867,7 +1113,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/taxonomymetadataframework/" >
+							<a href="/docs/master/faqs/taxonomymetadataframework/" >
 								Taxonomy Meta Data Framework
 							</a>
 						
@@ -879,7 +1125,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/user_rightspermissions/" >
+							<a href="/docs/master/faqs/user_rightspermissions/" >
 								Users Rights and Permission
 							</a>
 						
@@ -896,7 +1142,7 @@
 		
 		
 		<div class="section  section-glossary path-developer-docs ">
-			<a href="docs/master/glossary/" >
+			<a href="/docs/master/glossary/" >
 				<h4 class="sidebar-group-title">Glossary</h4>
 			</a>
 			
@@ -907,10 +1153,10 @@
 	
 	<!-- Contribution Sidebar-->
 </div>
+<script>
+	$("a[href$='/docs/master/developer-docs/channel_reg_with_ekstep/']").addClass("sidebar-link-selected");
+</script>
 
-			<script>
-				$("a[href$='docs/master/developer-docs/channel_reg_with_ekstep/']").addClass("sidebar-link-selected");
-			</script>
 		</div>
     </nav>
     <div class="content">
@@ -921,11 +1167,11 @@
       <div id="main-content" class="inner__content">
 			<p class="edit-para text-right">
 				<span>
-			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+			<a target="_blank" class="contribute" href="/docs/contributions/contribution_guidelines">
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/master/developer-docs/channel_reg_with_ekstep.md">
+			 <a target="_blank"  title="Edit this page" class="" href="https://github.com/dev-sunbird/docs/edit/master/developer-docs/channel_reg_with_ekstep.md">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
@@ -947,23 +1193,14 @@
           <ul>
             <li class="toc_level-1 toc_section-1">
               <a href="#overview"><span class="tocnumber">1 .</span> <span class="toctext">Overview</span></a>
-            </li>
-            <li class="toc_level-1 toc_section-2">
-              <a href="#purpose"><span class="tocnumber">2 .</span> <span class="toctext">Purpose</span></a>
               <ul>
-                <li class="toc_level-2 toc_section-3">
-                  <a href="#registering-a-channel"><span class="tocnumber">2.1 .</span> <span class="toctext">Registering a Channel</span></a>
+                <li class="toc_level-2 toc_section-2">
+                  <a href="#registering-a-channel"><span class="tocnumber">1.1 .</span> <span class="toctext">Registering a Channel</span></a>
                 </li>
-                <li class="toc_level-2 toc_section-4">
-                  <a href="#checking-the-status-of-channels"><span class="tocnumber">2.2 .</span> <span class="toctext">Checking the status of Channels</span></a>
+                <li class="toc_level-2 toc_section-3">
+                  <a href="#checking-the-status-of-channels"><span class="tocnumber">1.2 .</span> <span class="toctext">Checking the status of Channels</span></a>
                 </li>
               </ul>
-            </li>
-            <li class="toc_level-1 toc_section-5">
-              <a href="#channel-registration-api"><span class="tocnumber">3 .</span> <span class="toctext">Channel Registration API</span></a>
-            </li>
-            <li class="toc_level-1 toc_section-6">
-              <a href="#get-channel-list-api"><span class="tocnumber">4 .</span> <span class="toctext">Get channel list API</span></a>
             </li>
           </ul>
         </td>
@@ -972,149 +1209,42 @@
   </table>
 </div><h2 id="overview">Overview</h2>
 
-<p>This page guides you with the necessary steps for registering a channel with Ekstep. Since, registering a channel serves as a pre-requisite for creation of a root Organization 
-After registering a channel check the channel’s registration status.</p>
-
-<h2 id="purpose">Purpose</h2>
-
-<p>The fundamental purpose of performing this activity is to enable each channel (Root Orgs) to outline and define channel specific curriculum framework. Based on the channel value, provided at the time of registering a channel with Ekstep. Specific set of curriculum content framework will load.</p>
+<p>This page guides you with the necessary steps for registering a channel with Ekstep. Registering a channel is the primary requirement to setup Sunbird functionally. In this context, a channel in Sunbird is a source and conduit of information. It transfers the tenant data from the tenant system to the Ekstep server.
+It is must to have your channel registered with Ekstep to access Ekstep Infra. Since, numerous services of Sunbird use Ekstep Infra. Registering a channel also helps in identifying the services accessed by a specific tenant. 
+The fundamental purpose of performing this activity is to enable each channel (Root Orgs) to outline and define channel specific content. While registering a Channel, you will get a channel ID. This Channel ID can act as a filter, enable granting and revoking the permissions, manage requests etc.</p>
 
 <h3 id="registering-a-channel">Registering a Channel</h3>
 
+<p>To register a channel, follow these steps:</p>
+
 <ol>
-  <li>A scheduler job will run to find all the missing channels not registered with Ekstep</li>
-  <li>Once a few missing unregistered channels are found, the registering channel job is invoked to start registering these channels</li>
-  <li>Successful registration of a channel sets a flag to “true” in system-settings table</li>
+  <li>Enable the scheduler to find all the missing channels which are not registered in system-settings table</li>
+  <li>If scheduler finds any unregistered channel in the system-settings table, it invokes the register channel job</li>
+  <li>Upon successful registration of a channel, the flag is set to “true” in system-settings table</li>
 </ol>
 
 <h3 id="checking-the-status-of-channels">Checking the status of Channels</h3>
 
-<p>While the server starts up:</p>
+<p>While the server initializes:</p>
 
 <ol>
-  <li>As a routine, the scheduler always checks the sync status from system-settings table by checking the value of “Flag”</li>
-  <li>If sync status is set to “false,” it will invoke the process to find the missing channels</li>
-  <li>Register the channels with Ekstep by following the steps in section [Registering a channel] ()<!-- this link will be generated once the page goes on production--></li>
-  <li>Update the “Flag” key in system-settings table</li>
+  <li>As a routine, the scheduler always checks the sync status of system-settings table by checking  the value of “Flag” key</li>
+  <li>If sync status of flag key is “false,” it will invoke the process to find the missing channels</li>
+  <li>Then [Registering a channel] process will invoke</li>
 </ol>
 
-<p>The process for registering the channel uses the Channel API. Here is the sample payload for:</p>
+<p>In the mentioned processes, the following set of APIs(s) are used:</p>
 
 <ol>
-  <li>Channel registration</li>
-  <li>List Channels</li>
+  <li>
+    <p><a href="http://www.sunbird.org/apis/framework/#operation/ChannelV1CreatePost">Channel registration</a></p>
+  </li>
+  <li>
+    <h1 id="list-channelshttpwwwsunbirdorgapisframeworkoperationchannelv1listpost"><a href="http://www.sunbird.org/apis/framework/#operation/ChannelV1ListPost">List Channels</a></h1>
+  </li>
 </ol>
+<p>&lt;/pre&gt;</p>
 
-<h2 id="channel-registration-api">Channel Registration API</h2>
-
-<p>The request payload:</p>
-
-<p>URL : /channel/v3/create</p>
-
-<p>Method : POST</p>
-
-<p>RequestBody :</p>
-
-<pre>
-
-{
-   "request": {
-      "channel":{
-        "code": "012424880506855424168",  // code is hashTagId value in sunbird
-        "name": "cltindia",               // name is channel value in sunbird
-        "description": "CLT India"        //description of organization
-      }
-    }
-}
-
-</pre>
-
-<p>The response Payload:</p>
-
-<pre>
-
-Response :
-
-{
-    "id": "ekstep.learning.channel.create",
-    "ver": "1.0",
-    "ts": "2018-02-12T11:39:27ZZ",
-    "params": {
-        "resmsgid": "a3449214-d429-4c25-96fb-9c1edb4b5201",
-        "msgid": null,
-        "err": null,
-        "status": "successful",
-        "errmsg": null
-    },
-    "responseCode": "OK",
-    "result": {
-        "node_id": "012424880506855424168",
-        "versionKey": "1518435567708"
-    }
-}
-
-</pre>
-
-<h2 id="get-channel-list-api">Get channel list API</h2>
-
-<p>The request payload:</p>
-
-<p>URL : /channel/v3/list</p>
-
-<p>Method : POST</p>
-
-<pre>
-
-RequestBody :
-
-    {
-      "request": { }
-    }
-
-</pre>
-
-<p>The Response payload:</p>
-
-<pre>
-
-Response :
-
-{
-    "id": "ekstep.learning.channel.list",
-    "ver": "1.0",
-    "ts": "2018-02-13T05:54:38ZZ",
-    "params": {
-        "resmsgid": "fcd5e23e-db98-4c05-b162-4b11f1449f8e",
-        "msgid": null,
-        "err": null,
-        "status": null,
-        "errmsg": null
-    },
-    "responseCode": "OK",
-    "result": {
-        "channels": [
-            {
-                "identifier": "channel",
-                "code": "channel",
-                "frameworks": [],
-                "consumerId": "62e15662-bb09-439f-86e2-d65bd84f3c23",
-                "channel": "in.ekstep",
-                "description": "",
-                "createdOn": "2017-12-20T06:20:55.096+0000",
-                "versionKey": "1513750855096",
-                "appId": "ekstep_portal",
-                "name": "channel",
-                "lastUpdatedOn": "2017-12-20T06:20:55.096+0000",
-                "categories": [],
-                "defaultFramework": "NCF",
-                "status": "Live"
-            }
-        ],
-        "count": 1
-    }
-}
-
-</pre>
 
           
           <hr />
@@ -1125,7 +1255,7 @@ Response :
 			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
 		  </p>
-		  <a href="docs/master/developer-docs/channel_reg_with_ekstep/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+		  <a href="/docs/master/developer-docs/channel_reg_with_ekstep/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
           
       </div>
     </div>
@@ -1140,16 +1270,16 @@ Response :
 			
 			<div class="col-md-2 col-sm-6 ">
 				<ul>
-					<li><a href="about/">About Sunbird</a></li>
-					<li><a href="contact/">Contact Us</a></li>
-					<li><a href="privacy-policy/">Privacy Policy</a></li>
+					<li><a href="/about/">About Sunbird</a></li>
+					<li><a href="/contact/">Contact Us</a></li>
+					<li><a href="/privacy-policy/">Privacy Policy</a></li>
 				</ul>
 			</div>
 			
 			<div class="col-md-2 col-sm-6 sideline">
 				<ul>
-					<li><a href="docs/">Documentation</a></li>
-					<li><a href="features/">Features</a></li>
+					<li><a href="/docs/">Documentation</a></li>
+					<li><a href="/features/">Features</a></li>
 				</ul>
 			</div>
 
@@ -1179,7 +1309,7 @@ Response :
 	});
 	$('#toc a').each(function(){
 		var url = this.href.replace(baseURL.href, "");
-		this.href = 'docs/master/developer-docs/channel_reg_with_ekstep/' + url;
+		this.href = '/docs/master/developer-docs/channel_reg_with_ekstep/' + url;
     })
   </script>
   </body>

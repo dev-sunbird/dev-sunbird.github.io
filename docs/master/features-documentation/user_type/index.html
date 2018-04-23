@@ -27,8 +27,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<base id="baseURL" href="/" />
-<script>
+	<base id="baseURL" href="/docs/master/features-documentation/user_type/" />
+<!--<script>
 	// Dynamic Base URL
 	function getBase(){
 		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io"];
@@ -36,18 +36,18 @@
 		if (excludedSites.indexOf(window.location.host) > -1){
 			baseURL.href="/";
 		} else {
-			baseURL.href="/releases/release-1.0.2/";
+			baseURL.href="";
 		}
 	}
 	getBase();
-</script>
+</script>-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-touch-fullscreen" content="yes" />
-<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16">
 <meta name="msapplication-TileColor" content="#65d3f7">
-<meta name="msapplication-TileImage" content="img/favicon/mstile-150x150.png">
+<meta name="msapplication-TileImage" content="/img/favicon/mstile-150x150.png">
 
 <title>Sunbird Types of Users</title>
 <meta name="description" content="Sunbird Site User Roles and Permission"/>
@@ -56,12 +56,12 @@
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="pragma" content="no-cache" />
-<meta name="last-modified" content="2018-03-15 18:22:46 +0530">
+<meta name="last-modified" content="2018-04-23 23:21:38 +0530">
 <meta http-equiv="Expires" content="600" />
 
 <!--Build Details-->
-<meta name="buildVersion" content="release-1.0.2" />
-<meta name="buildNo" content="30" />
+<meta name="buildVersion" content="Release - release-1.0.6" />
+<meta name="buildNo" content="86" />
 <!--/Build Details-->
 
 <!-- CDN's-->
@@ -69,13 +69,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
 <!-- /CDN's-->
 
-<link rel="stylesheet" href="css/owl/owl.carousel.min.css?15032018"  />
-<link rel="stylesheet" href="css/style.css?15032018"  />
-<script type="text/javascript" src="js/bootstrap.min.js?15032018"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js?15032018"></script>
-<script type="text/javascript" src="js/jquery.tocLight.js?15032018"></script>
+<link rel="stylesheet" href="/css/owl/owl.carousel.min.css?23042018"  />
+<link rel="stylesheet" href="/css/style.css?23042018"  />
+<script type="text/javascript" src="/js/bootstrap.min.js?23042018"></script>
+<script type="text/javascript" src="/js/owl.carousel.min.js?23042018"></script>
+<script type="text/javascript" src="/js/jquery.tocLight.js?23042018"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
@@ -87,8 +88,8 @@
   <div class="container inner container-height docs master ">
     <header class="logo-container">
       <div class="logo">
-        <a href="index.html">
-          <img src="img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
+        <a href="/index.html">
+          <img src="/img/sunbird-logo.png" alt="Sunbird docs" title="Sunbird docs">
         </a>
       </div>
       <button type="button" class="dropdown-toggle collapsed" id="dropdown-trigger" data-toggle="collapse" data-target="#mobile-dropdown" aria-expanded="false">
@@ -142,7 +143,7 @@
 		
 		
 		
-			<option value="docs/2.0/features-documentation/user_type/" >
+			<option value="/docs/2.0/features-documentation/user_type/" >
 				Version 2.0
 				
 					( Latest )
@@ -155,7 +156,7 @@
 		
 		
 		
-			<option value="docs/1.0/features-documentation/user_type/" >
+			<option value="/docs/1.0/features-documentation/user_type/" >
 				Version 1.0
 				
 				</option>
@@ -173,11 +174,12 @@
 		$('#docs-version').on('change', function () {
 			var url = $(this).val(); // get selected value
 				if (url) { // require a URL
-					if (excludedSites.indexOf(window.location.host) > -1){
+					window.location = url; // redirect
+					/*if (excludedSites.indexOf(window.location.host) > -1){
 						window.location = url; // redirect
 					} else {
 						window.location = baseURL.href+url;  // redirect
-					}
+					}*/
 				}
 			return false;
 		});
@@ -206,7 +208,7 @@
 		
 		
 		<div class="section  section-architecture path-features-documentation ">
-			<a href="docs/master/architecture/" >
+			<a href="/docs/master/architecture/" >
 				<h4 class="sidebar-group-title">Architecture</h4>
 			</a>
 			
@@ -218,7 +220,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/overview/" >
+							<a href="/docs/master/architecture/overview/" >
 								Overview
 							</a>
 						
@@ -230,7 +232,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/design/" >
+							<a href="/docs/master/architecture/design/" >
 								Design
 							</a>
 						
@@ -243,7 +245,7 @@
 								
 									
 								
-								<a href="docs/master/architecture/views/elementryview/" >
+								<a href="/docs/master/architecture/views/elementryview/" >
 									Views
 								</a>
 								<ul class="sidebar-group">
@@ -252,7 +254,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/logical/" >
+										<a  href="/docs/master/architecture/views/logical/" >
 											Logical View
 										</a>
 									</li>
@@ -261,7 +263,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/physical/" >
+										<a  href="/docs/master/architecture/views/physical/" >
 											Physical View
 										</a>
 									</li>
@@ -270,7 +272,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/conceptual/" >
+										<a  href="/docs/master/architecture/views/conceptual/" >
 											Conceptual View
 										</a>
 									</li>
@@ -279,7 +281,7 @@
 										
 											
 										
-										<a  href="docs/master/architecture/views/deployment/" >
+										<a  href="/docs/master/architecture/views/deployment/" >
 											Deployment View
 										</a>
 									</li>
@@ -295,7 +297,7 @@
 							
 								
 							
-							<a href="docs/master/architecture/usecase/" >
+							<a href="/docs/master/architecture/usecase/" >
 								Use Cases
 							</a>
 						
@@ -312,7 +314,7 @@
 		
 		
 		<div class="section active section-features-documentation path-features-documentation ">
-			<a href="docs/master/features-documentation/" >
+			<a href="/docs/master/features-documentation/" >
 				<h4 class="sidebar-group-title">Product Features</h4>
 			</a>
 			
@@ -324,19 +326,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/onboarding/" >
-								Onboarding
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/master/features-documentation/login/" >
+							<a href="/docs/master/features-documentation/login/" >
 								Login
 							</a>
 						
@@ -348,7 +338,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/register_org/" >
+							<a href="/docs/master/features-documentation/register_org/" >
 								Register Organizations
 							</a>
 						
@@ -360,7 +350,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/register_user/" >
+							<a href="/docs/master/features-documentation/register_user/" >
 								Register Users
 							</a>
 						
@@ -373,7 +363,7 @@
 								
 									
 								
-								<a href="docs/master/features-documentation/userrolepermission/" >
+								<a href="/docs/master/features-documentation/userrolepermission/" >
 									User Roles and Permissions
 								</a>
 								<ul class="sidebar-group">
@@ -382,7 +372,16 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/userprofile/" >
+										<a  href="/docs/master/features-documentation/user_type/" >
+											Types of Users
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/userprofile/" >
 											User Profile
 										</a>
 									</li>
@@ -391,7 +390,7 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/workspace/" >
+										<a  href="/docs/master/features-documentation/workspace/" >
 											Workspace
 										</a>
 									</li>
@@ -407,7 +406,111 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/library/" >
+							<a href="/docs/master/features-documentation/admindashboard/" >
+								Administrator Dashboard
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/lessonplan/" >
+								Lesson Plan
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/book_creation/" >
+								Book
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/collection_creation/" >
+								Collection
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/features-documentation/course_intro/" >
+									Courses
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_creation/" >
+											Course Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_batches/" >
+											Batch Creation
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/features-documentation/course_consumption/" >
+											Course Consumption
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/announcement/" >
+								Announcement
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/features-documentation/library/" >
 								Library
 							</a>
 						
@@ -419,7 +522,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/contentlifecycle/" >
+							<a href="/docs/master/features-documentation/contentlifecycle/" >
 								Content Lifecycle
 							</a>
 						
@@ -431,19 +534,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/contentcreation/" >
-								Content Creation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
-							
-								
-							
-							<a href="docs/master/features-documentation/contenteditor/" >
+							<a href="/docs/master/features-documentation/contenteditor/" >
 								Content Editor
 							</a>
 						
@@ -456,7 +547,7 @@
 								
 									
 								
-								<a href="docs/master/features-documentation/guidelines/" >
+								<a href="/docs/master/features-documentation/guidelines/" >
 									Guidelines
 								</a>
 								<ul class="sidebar-group">
@@ -465,7 +556,7 @@
 										
 											
 										
-										<a  href="docs/master/features-documentation/intellectualproperty/" >
+										<a  href="/docs/master/features-documentation/intellectualproperty/" >
 											Intellectual Property
 										</a>
 									</li>
@@ -481,7 +572,7 @@
 							
 								
 							
-							<a href="docs/master/features-documentation/collaborationpartnership/" >
+							<a href="/docs/master/features-documentation/collaborationpartnership/" >
 								Collaboration and Partnership
 							</a>
 						
@@ -498,7 +589,7 @@
 		
 		
 		<div class="section  section-developer-docs path-features-documentation ">
-			<a href="docs/master/developer-docs/" >
+			<a href="/docs/master/developer-docs/" >
 				<h4 class="sidebar-group-title">Developer Documentation</h4>
 			</a>
 			
@@ -510,8 +601,32 @@
 							
 								
 							
-							<a href="docs/master/developer-docs/installation/" >
+							<a href="/docs/master/developer-docs/getting_started/" >
+								Getting Started with Sunbird
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/" >
 								Installation Overview
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/installing_sunbirdon_machine/" >
+								Install Sunbird on your Machine
 							</a>
 						
 					</li>
@@ -523,7 +638,7 @@
 								
 									
 								
-								<a href="docs/master/developer-docs/installation/medium_scale_deploy/" >
+								<a href="/docs/master/developer-docs/installation/medium_scale_deploy/" >
 									Medium Scale Deployment
 								</a>
 								<ul class="sidebar-group">
@@ -532,7 +647,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/provisioning_servers/" >
+										<a  href="/docs/master/developer-docs/installation/provisioning_servers/" >
 											Provisioning Servers
 										</a>
 									</li>
@@ -541,7 +656,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/setup_db/" >
+										<a  href="/docs/master/developer-docs/installation/setup_db/" >
 											Setup Databases
 										</a>
 									</li>
@@ -550,7 +665,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/deploy_sb_services/" >
+										<a  href="/docs/master/developer-docs/installation/deploy_sb_services/" >
 											Deploying Sunbird Services
 										</a>
 									</li>
@@ -559,8 +674,8 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/keycloak_realm_configuration/" >
-											Configure Keycloak
+										<a  href="/docs/master/developer-docs/installation/install_sbbackend/" >
+											Installing Sunbird Backend
 										</a>
 									</li>
 									
@@ -568,7 +683,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/cust_sunbird/" >
+										<a  href="/docs/master/developer-docs/installation/cust_sunbird/" >
 											Customizing Assets
 										</a>
 									</li>
@@ -577,7 +692,7 @@
 										
 											
 										
-										<a  href="docs/master/developer-docs/installation/check_installation/" >
+										<a  href="/docs/master/developer-docs/installation/check_installation/" >
 											Check Installation
 										</a>
 									</li>
@@ -590,24 +705,12 @@
 					<li>
 								
 						
-							
-								
-							
-							<a href="docs/master/developer-docs/installation/install_mobile_setup/" >
-								Mobile App Installation
-							</a>
-						
-					</li>
-				
-					<li>
-								
-						
 							<div class="">
 								
 									
 								
-								<a href="docs/master/apis/" >
-									API References
+								<a href="/docs/master/developer-docs/onboarding/" >
+									Onboarding
 								</a>
 								<ul class="sidebar-group">
 									
@@ -615,8 +718,8 @@
 										
 											
 										
-										<a  href="docs/master/apis/specs/?api=bulkserviceapi" target="_blank">
-											Bulk Upload Service APIs
+										<a  href="/docs/master/developer-docs/singlesignon/overview_sso/" >
+											Onboarding via Single Sign On
 										</a>
 									</li>
 									
@@ -624,62 +727,8 @@
 										
 											
 										
-										<a  href="docs/master/apis/specs/?api=contentapi" target="_blank">
-											Content APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=coursebatchmanapi" target="_blank">
-											Course Batch Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=datasyncapi" target="_blank">
-											Data Sync APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=metricsapi" target="_blank">
-											Metrics APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=notificationapi" target="_blank">
-											Notification APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=orgapi" target="_blank">
-											Organisation Management APIs
-										</a>
-									</li>
-									
-									<li>
-										
-											
-										
-										<a  href="docs/master/apis/specs/?api=userapi" target="_blank">
-											User APIs
+										<a  href="/docs/master/developer-docs/configuring_announcement/" >
+											Configuring for Announcements
 										</a>
 									</li>
 									
@@ -694,7 +743,163 @@
 							
 								
 							
-							<a href="docs/master/developer-docs/troubleshooting/" >
+							<a href="/docs/master/developer-docs/upgrading/" >
+								Upgrading
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/installation/install_mobile_setup/" >
+								Mobile App Installation
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/apis/" >
+									API Reference Documentation
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#feature" >
+											Feature
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#admin-apis" >
+											Administration
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#setup-apis" >
+											Setup
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/apis/#data-apis" >
+											Data
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/developer-docs/telemetry/overview" >
+									Telemetry
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/specification/" >
+											Telemetry Specifications
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/sending_telemetry/" >
+											Sending Telemetry
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							<div class="">
+								
+									
+								
+								<a href="/docs/master/developer-docs/library_reference/" >
+									Library References
+								</a>
+								<ul class="sidebar-group">
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/jslibrary/" >
+											Standalone JS Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/htmlinterfacelibrary/" >
+											HTML Interface Library
+										</a>
+									</li>
+									
+									<li>
+										
+											
+										
+										<a  href="/docs/master/developer-docs/telemetry/authtokengenerator_jslibrary/" >
+											AuthToken Generator JS Library
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/master/developer-docs/troubleshooting/" >
 								Troubleshooting
 							</a>
 						
@@ -710,8 +915,49 @@
 			
 		
 		
+		<div class="section  section- path-features-documentation ">
+			<a href="/docs/contributions/" >
+				<h4 class="sidebar-group-title">Contribute to Sunbird</h4>
+			</a>
+			
+				<ul class="sidebar-group">
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/filing_a_bug" >
+								Guidelines for Filing a Bug
+							</a>
+						
+					</li>
+				
+					<li>
+								
+						
+							
+								
+							
+							<a href="/docs/contributions/contribution_guidelines" >
+								Contributing to Sunbird Documentation
+							</a>
+						
+					</li>
+				
+				</ul>
+				
+		</div>
+		<!-- Section End-->
+	
+		<!-- Section Start-->
+		
+			
+		
+		
 		<div class="section  section-faqs path-features-documentation ">
-			<a href="docs/master/faqs/" >
+			<a href="/docs/master/faqs/" >
 				<h4 class="sidebar-group-title">Frequently asked questions</h4>
 			</a>
 			
@@ -723,7 +969,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/audience/" >
+							<a href="/docs/master/faqs/audience/" >
 								Audience
 							</a>
 						
@@ -735,7 +981,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_format/" >
+							<a href="/docs/master/faqs/content_format/" >
 								Content Format
 							</a>
 						
@@ -747,7 +993,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_repo/" >
+							<a href="/docs/master/faqs/content_repo/" >
 								Content Repositories
 							</a>
 						
@@ -759,7 +1005,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/contentreviews/" >
+							<a href="/docs/master/faqs/contentreviews/" >
 								Content Review
 							</a>
 						
@@ -771,7 +1017,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_types/" >
+							<a href="/docs/master/faqs/content_types/" >
 								Content Types
 							</a>
 						
@@ -783,7 +1029,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/content_upload/" >
+							<a href="/docs/master/faqs/content_upload/" >
 								Content Upload
 							</a>
 						
@@ -795,7 +1041,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/feature/" >
+							<a href="/docs/master/faqs/feature/" >
 								Features
 							</a>
 						
@@ -807,7 +1053,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/fixerrors/" >
+							<a href="/docs/master/faqs/fixerrors/" >
 								Fix Errors
 							</a>
 						
@@ -819,7 +1065,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/helpsupport/" >
+							<a href="/docs/master/faqs/helpsupport/" >
 								Help Support
 							</a>
 						
@@ -831,7 +1077,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/intellectual_propertylicensesstandards/" >
+							<a href="/docs/master/faqs/intellectual_propertylicensesstandards/" >
 								Intellectual Property Licenses Standards
 							</a>
 						
@@ -843,7 +1089,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/registrationenrolment/" >
+							<a href="/docs/master/faqs/registrationenrolment/" >
 								Registration and Enrollment
 							</a>
 						
@@ -855,7 +1101,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/signin/" >
+							<a href="/docs/master/faqs/signin/" >
 								Sign In
 							</a>
 						
@@ -867,7 +1113,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/taxonomymetadataframework/" >
+							<a href="/docs/master/faqs/taxonomymetadataframework/" >
 								Taxonomy Meta Data Framework
 							</a>
 						
@@ -879,7 +1125,7 @@
 							
 								
 							
-							<a href="docs/master/faqs/user_rightspermissions/" >
+							<a href="/docs/master/faqs/user_rightspermissions/" >
 								Users Rights and Permission
 							</a>
 						
@@ -896,7 +1142,7 @@
 		
 		
 		<div class="section  section-glossary path-features-documentation ">
-			<a href="docs/master/glossary/" >
+			<a href="/docs/master/glossary/" >
 				<h4 class="sidebar-group-title">Glossary</h4>
 			</a>
 			
@@ -907,10 +1153,10 @@
 	
 	<!-- Contribution Sidebar-->
 </div>
+<script>
+	$("a[href$='/docs/master/features-documentation/user_type/']").addClass("sidebar-link-selected");
+</script>
 
-			<script>
-				$("a[href$='docs/master/features-documentation/user_type/']").addClass("sidebar-link-selected");
-			</script>
 		</div>
     </nav>
     <div class="content">
@@ -921,11 +1167,11 @@
       <div id="main-content" class="inner__content">
 			<p class="edit-para text-right">
 				<span>
-			<a target="_blank" class="contribute" href="docs/contributions/contribution_guidelines">
+			<a target="_blank" class="contribute" href="/docs/contributions/contribution_guidelines">
 				  <i class="fa fa-book" aria-hidden="true"></i> <i>Contribution Guidelines</i>
 			  </a> &nbsp;&nbsp;
 			  
-			 <a target="_blank"  title="Edit this page"class="" href="https://github.com/dev-sunbird/docs/edit/master/features-documentation/user_type.md">
+			 <a target="_blank"  title="Edit this page" class="" href="https://github.com/dev-sunbird/docs/edit/master/features-documentation/user_type.md">
 				  <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
 			  </a> 
 			  | 
@@ -935,74 +1181,398 @@
 			  </a>
 			  </span>
 			</p>
-          <p>On Sunbird, there are nine types of users:</p>
+          <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+            <span class="toctoggle">[<a id="toctogglelink" class="internal" href="#">hide</a>]</span>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#course-mentor"><span class="tocnumber">1 .</span> <span class="toctext">Course Mentor</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#content-reviewer"><span class="tocnumber">2 .</span> <span class="toctext">Content Reviewer</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#teacher-badge-issuer"><span class="tocnumber">3 .</span> <span class="toctext">Teacher Badge Issuer</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#book-creator"><span class="tocnumber">4 .</span> <span class="toctext">Book Creator</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#book-reviewer"><span class="tocnumber">5 .</span> <span class="toctext">Book Reviewer</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#official-textbook-badge-issuer"><span class="tocnumber">6 .</span> <span class="toctext">Official Textbook Badge Issuer</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#public"><span class="tocnumber">7 .</span> <span class="toctext">Public</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-8">
+              <a href="#announcement-sender"><span class="tocnumber">8 .</span> <span class="toctext">Announcement Sender</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-9">
+              <a href="#content-creator"><span class="tocnumber">9 .</span> <span class="toctext">Content Creator</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-10">
+              <a href="#flag-reviewer"><span class="tocnumber">10 .</span> <span class="toctext">Flag Reviewer</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p>On Sunbird, each user type is associated with a user role. The permissions and responsibilities vary for each user role.<br />
+Before users are assigned with appropriate roles, it is important to understand the: <br />1. Responsibilities of a each user role <br />2. Features accessible to each user role</p>
+
+<p>On Sunbird there are ten user types:</p>
+
+<h2 id="course-mentor">Course Mentor</h2>
+<p>A Course Mentor guides and instructs learners on how to undertake a course. They create batches of users to enrol for a course. Mentors also ensure completion of a course within a stipulated time.</p>
+
+<p>
+  <b>User Role Matrix for a Course Mentor</b>
+</p>
 
 <table>
   <thead>
     <tr>
-      <th>S. No</th>
-      <th>User</th>
-      <th>Definition</th>
-      <th>Sunbird Context</th>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject and Publish Content</th>
+      <th>Delete Content</th>
+      <th>Create Batch</th>
+      <th>Add Other Mentors</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1.</td>
-      <td>Organization Administrator (Org Admin)</td>
-      <td>A person who manages or oversees the functioning of any body of individuals.</td>
-      <td>Org admin is responsible for the upkeep of the portal and managing user roles and permissions.</td>
-    </tr>
-    <tr>
-      <td>2.</td>
-      <td>System Administrator (Sys Admin)</td>
-      <td>A system administrator is a person who is responsible for the upkeep, configuration, and reliable operations of computer systems.</td>
-      <td>On Sunbird, a system admin is mostly a state, an NGO, typically a large body of individuals. Like a state having various education bodies affiliated to it, a system admin is responsible for various body of individuals associated with it.</td>
-    </tr>
-    <tr>
-      <td>3.</td>
-      <td>Registered User</td>
-      <td>A user with registered credentials</td>
-      <td>On Sunbird, ad registered user can be a learner or an instructor. To consume any content on Sunbird, the user must be registered on the portal by their respective org admins.</td>
-    </tr>
-    <tr>
-      <td>4.</td>
-      <td>Content Creator</td>
-      <td>An individual who can create any kind of content.</td>
-      <td>On Sunbird, registered users become content creators when content creation rights are assigned to them.</td>
-    </tr>
-    <tr>
-      <td>5.</td>
-      <td>Content Reviewer</td>
-      <td>A person who assesses content within prescribed guidelines.</td>
-      <td>On Sunbird, there are defined review guidelines. The reviewer assesses the content based on these guidelines. A reviewer has the right to reject or publish the content based on these guidelines.</td>
-    </tr>
-    <tr>
-      <td>6.</td>
-      <td>Flag Reviewer</td>
-      <td>A person who assesses flagged content</td>
-      <td>On Sunbird, any user can flag a content, if the content is inappropriate. The flag reviewer reviews the content and rejects if the content is inappropriate according to Sunbird review guidelines. The flag is removed if the content fits the guidelines.</td>
-    </tr>
-    <tr>
-      <td>7.</td>
-      <td>Course Creator</td>
-      <td>An individual who can create any kind of course.</td>
-      <td>On Sunbird, registered users become course creators when course creation rights are assigned to them.</td>
-    </tr>
-    <tr>
-      <td>8.</td>
-      <td>Course Mentor</td>
-      <td>A person who guides and instructs learners on how to undertake a course.</td>
-      <td>On Sunbird, a course mentor creates batches of users to consume a course. These mentors also ensure completion of the course within a stipulated time.</td>
-    </tr>
-    <tr>
-      <td>9.</td>
-      <td>Announcement Sender</td>
-      <td>A person who send announcements to various registered users on the portal</td>
-      <td>On Sunbird, every organization can have one or more announcement sender who are responsible for sending important dates, announcements etc. to all the registered users of that organization</td>
+      <td><strong>Course Mentor</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
+
+<h2 id="content-reviewer">Content Reviewer</h2>
+<p>A Content Reviewer accesses the created courses or content within prescribed guidelines. Sunbird has defined review guidelines. Reviewers assess content based on these guidelines. Reviewers have the right to reject or publish content based on these guidelines.</p>
+
+<p>
+  <b>User Role Matrix for a Content Reviewer</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject and Publish Content</th>
+      <th>Review Flagged Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content Reviewer</strong></td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Note:</b> Reviewers can also have creation rights, but they cannot review courses or content created by themselves. Reviewers can only review courses or content created by others.</p>
+
+<h2 id="teacher-badge-issuer">Teacher Badge Issuer</h2>
+<p>A Teacher Badge Issuer is responsible for assigning badges to teachers based on the discretion of the concerned organization.</p>
+
+<p>
+  <b>User Role Matrix for a Teacher Badge Issuer</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject and Publish Content</th>
+      <th>Assign Badges</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Teacher Badge Issuer</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="book-creator">Book Creator</h2>
+<p>A Book Creator is an individual who curate and compiles books. The registered users become book creators when book creation rights are assigned to them.</p>
+
+<p>
+  <b>User Role Matrix for a Book Creator</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Book</th>
+      <th>Upload Book</th>
+      <th>Review Book</th>
+      <th>Reject and Publish Book</th>
+      <th>Review Flagged Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Book Creator</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="book-reviewer">Book Reviewer</h2>
+<p>A Book Reviewer assesses books within defined and prescribed guidelines. A book reviewer has the right to reject or publish the content based on these guidelines.</p>
+
+<p>
+  <b>User Role Matrix for a Book Reviewer</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Book</th>
+      <th>Upload Book</th>
+      <th>Review Book</th>
+      <th>Reject and Publish Book</th>
+      <th>Review Flagged Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Book Reviewer</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="official-textbook-badge-issuer">Official Textbook Badge Issuer</h2>
+<p>An Official Textbook Badge Issuer is an individual who  assigns badges to books. Currently, only one badge can be assigned on Sunbird titled as Official</p>
+
+<p>
+  <b>User Role Matrix for an Official Textbook Badge Issuer</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Book</th>
+      <th>Upload Book</th>
+      <th>Review Book</th>
+      <th>Reject and Publish Book</th>
+      <th>Assign Badge</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Official Textbook Badge Issuer</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="public">Public</h2>
+<p>A user having registered credentials on Sunbird. A registered user can be a learner or an instructor. To consume any content on Sunbird, the user must be registered on the portal by their respective org admins</p>
+
+<p>
+  <b>User Role Matrix for a Public User</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Book</th>
+      <th>Upload Book</th>
+      <th>Review Book</th>
+      <th>Reject and Publish Book</th>
+      <th>View Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Public</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="announcement-sender">Announcement Sender</h2>
+<p>A person who send a formal declaration to various registered users on the portal. On Sunbird, every organization can have one or more announcement sender who are responsible for informing important dates, announcements and other information to all the registered users of that organization.<br />
+<b>User Role Matrix for an Announcement Sender</b></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject Content and Publish Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+      <th>Create Announcements</th>
+      <th>Send Announcements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Announcement Sender</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="content-creator">Content Creator</h2>
+<p>A content creator can curate content such as Collection, Lesson Plan and Study Material. On Sunbird, registered users become content creators when content creation rights are assigned to them.</p>
+
+<p>
+  <b>User Role Matrix for a Content Creator</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject Content</th>
+      <th>Publish Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Content Creator</strong></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="flag-reviewer">Flag Reviewer</h2>
+<p>A flag reviewer assesses the content that is marked as inappropriate by any user. The flag reviewer reviews and rejects the inappropriatethe content. The flag is removed if the content abides by the guidelines.</p>
+
+<p>
+  <b>User Role Matrix for a Flag Reviewer</b>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Create Content</th>
+      <th>Upload Content</th>
+      <th>Review Content</th>
+      <th>Reject and Publish Content</th>
+      <th>Review Flagged Content</th>
+      <th>Delete Content</th>
+      <th>Update User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Flag Reviewer</strong></td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>Note</b>: Organization administrators can assign multiple roles to individual users. For example; a user can be a course mentor, course creator and announcement sender. The organization decides how many roles one individual should handle.</p>
 
 
           
@@ -1014,7 +1584,7 @@
 			<a target="_blank" href="https://github.com/dev-sunbird/docs/issues" title="Report issue">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Report</a>
 		  </p>
-		  <a href="docs/master/features-documentation/user_type/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
+		  <a href="/docs/master/features-documentation/user_type/#heading" class="scrollup"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
           
       </div>
     </div>
@@ -1029,16 +1599,16 @@
 			
 			<div class="col-md-2 col-sm-6 ">
 				<ul>
-					<li><a href="about/">About Sunbird</a></li>
-					<li><a href="contact/">Contact Us</a></li>
-					<li><a href="privacy-policy/">Privacy Policy</a></li>
+					<li><a href="/about/">About Sunbird</a></li>
+					<li><a href="/contact/">Contact Us</a></li>
+					<li><a href="/privacy-policy/">Privacy Policy</a></li>
 				</ul>
 			</div>
 			
 			<div class="col-md-2 col-sm-6 sideline">
 				<ul>
-					<li><a href="docs/">Documentation</a></li>
-					<li><a href="features/">Features</a></li>
+					<li><a href="/docs/">Documentation</a></li>
+					<li><a href="/features/">Features</a></li>
 				</ul>
 			</div>
 
@@ -1068,7 +1638,7 @@
 	});
 	$('#toc a').each(function(){
 		var url = this.href.replace(baseURL.href, "");
-		this.href = 'docs/master/features-documentation/user_type/' + url;
+		this.href = '/docs/master/features-documentation/user_type/' + url;
     })
   </script>
   </body>
