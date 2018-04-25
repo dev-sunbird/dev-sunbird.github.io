@@ -85,20 +85,7 @@ module Jekyll
       <base id="baseURL" href="/" />
       <link rel="canonical" href="#{destination_path}"/>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <script>
-			// Dynamic Base URL
-			function getBase(){
-				excludedSites = ["127.0.0.1:4000", "www.sunbird.org", "lakhanmandloi.github.io"];
-				baseURL = document.getElementById('baseURL');
-				if (excludedSites.indexOf(window.location.host) > -1){
-					baseURL.href="/";
-				} else {
-					baseURL.href="#{@site.baseurl}";
-				}
-			}
-			getBase();
-	</script>
-	<meta http-equiv="refresh" content="1;url=#{destination_path}" />
+      <meta http-equiv="refresh" content="1;url=#{destination_path}" />
       </head>
       <body>
       <p>Redirecting to the new page.</p>
