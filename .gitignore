@@ -1,8 +1,8 @@
 #=======================================
 # Exclude Docs Folder
 #=======================================
-docs
-ingredients
+docs/
+ingredients/
 _data/version/*
 _data/versions.yaml
 #=======================================

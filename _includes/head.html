@@ -1,17 +1,5 @@
 <base id="baseURL" href="{{page.url}}" />
-<!--<script>
-	// Dynamic Base URL
-	function getBase(){
-		excludedSites = ["127.0.0.1:4000","127.0.0.1:4001", "www.sunbird.org", "dev-sunbird.github.io"];
-		baseURL = document.getElementById('baseURL');
-		if (excludedSites.indexOf(window.location.host) > -1){
-			baseURL.href="/";
-		} else {
-			baseURL.href="{{site.baseurl}}";
-		}
-	}
-	getBase();
-</script>-->
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=10, user-scalable=yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -48,6 +36,13 @@
 <script type="text/javascript" src="/js/bootstrap.min.js?{{ site.time | | date: '%d%m%Y'}}"></script>
 <script type="text/javascript" src="/js/owl.carousel.min.js?{{ site.time | | date: '%d%m%Y'}}"></script>
 <script type="text/javascript" src="/js/jquery.tocLight.js?{{ site.time | | date: '%d%m%Y'}}"></script>
+<script type="text/javascript" src="/js/jquery.elevateZoom-3.0.8.min.js?{{ site.time | | date: '%d%m%Y'}}"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106552125-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-106552125-1');
+</script>
