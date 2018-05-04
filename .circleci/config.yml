@@ -73,7 +73,7 @@ jobs:
       - type: shell
         command: |
            cd _site
-           aws s3 sync --delete . s3://$s3Bucket/releases/$CIRCLE_TAG
+           aws s3 sync --delete --quiet . s3://$s3Bucket/releases/$CIRCLE_TAG
   prod:
     working_directory: /project/workspace/
     docker:
@@ -95,7 +95,7 @@ jobs:
           cd ..
           mkdir downloads
           cd downloads
-          aws s3 sync --delete s3://$s3Bucket/releases/$CIRCLE_TAG .
+          aws s3 sync --delete --quiet s3://$s3Bucket/releases/$CIRCLE_TAG .
            
       # Deploy to Gitpages
       - type: shell
