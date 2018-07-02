@@ -245,3 +245,4 @@ definitions:
     allOf:
       - $ref: '#/definitions/EmptyResult'
       - $ref: '#/definitions/ResponseHeader'
+ 
